@@ -1,9 +1,10 @@
-Runbox Keyboard Shortcuts
-=======================
+# Runbox Keyboard Shortcuts
 
 Adds keyboard shortcuts to the Runbox.com Webmail client.
 
-Press ? on your keyboard after installing this script to see a list of available shortcuts.
+View complete list of shortcuts here: [RunboxKeyboardShortcuts.md](https://github.com/RunboxScripts/RunboxKeyboardShortcuts/blob/master/RunboxKeyboardShortcuts.md)
+
+Also you can press ? on your keyboard after installing this script to view a list of available shortcuts.
 
 ## How to install
 
