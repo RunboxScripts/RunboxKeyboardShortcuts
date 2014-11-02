@@ -4,7 +4,7 @@
 // @description Adds keyboard shortcuts to Runbox Webmail
 // @downloadURL https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardShortcuts/master/RunboxKeyboardShortcuts.user.js
 // @updateURL   https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardShortcuts/master/RunboxKeyboardShortcuts.meta.js
-// @include     https://runbox.com/*
+// @match       https://runbox.com/*
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/mousetrap.min.js
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
