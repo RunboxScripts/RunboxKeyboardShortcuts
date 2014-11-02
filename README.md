@@ -10,9 +10,15 @@ Once installed, press **?** to see a list of available shortcuts.
 
 Click this link: https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardShortcuts/master/RunboxKeyboardShortcuts.user.js
 
-You need a web browser that can run user scripts:
+### Requirements
+
+1) A web browser that can run user scripts:
 * Firefox with Greasemonkey: https://addons.mozilla.org/en-US/firefox/addon/greasemonkey
 * Chrome with Tampermonkey: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
+
+2) Runbox Webmail 6 Enhanced Mode
+
+3) Upgraded "New" search bar
 
 ## Bugs, Questions, Improvement Requests
 
