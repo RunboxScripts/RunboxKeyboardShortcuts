@@ -469,8 +469,6 @@ if (rksRunboxView == 'contacts') {
     var rksPcontent = '<div id="rksPtitle">Keyboard Shortcuts</div> \
                         <table id="rksPtable"> \
                         <tbody> \
-                        <tr><td class="h pl">Actions</td></tr> \
-                        <tr><td>&nbsp;</td></tr> \
                         <tr><td class="m pl">Ctrl + Shift + f<br>&#8984; + Shift + f</td><td>Change "From:" address</td></tr> \
                         <tr><td>&nbsp;</td></tr> \
                         <tr><td class="m pl">Ctrl + Shift + t<br>&#8984; + Shift + t</td><td>Add "To:" recipients</td><td class="pl">&larr; This command does not work in Chrome unless<br>Runbox is opened via <a href="https://support.google.com/chrome/answer/95710?hl=en" target="_blank">Application Shortcut</a>.</td></tr> \
