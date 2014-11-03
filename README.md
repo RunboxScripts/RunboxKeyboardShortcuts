@@ -15,9 +15,10 @@ Click this link: https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardS
 1) A web browser that can run user scripts:
 * Firefox with Greasemonkey: https://addons.mozilla.org/en-US/firefox/addon/greasemonkey
 * Chrome with Tampermonkey: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
+* Opera (not tested)
 
 2) Runbox Webmail 6 Enhanced Mode. 
-* Scroll to the bottom left in Webmail and click this button: [Screenshot #1](https://i.cloudup.com/uNEHjGeV8iX/yppLCy.png).
+* Scroll to the bottom left in Webmail and click this button: [Screenshot #1](https://i.cloudup.com/uNEHjGeV8iX/yppLCy.png)
 * When Enhanced mode is enabled you'll see this button: [Screenshot #2](https://i.cloudup.com/uNEHjGeV8iX/U2BpSn.png)
 
 3) Upgrade to the "New" search bar: [Screenshot #3](https://i.cloudup.com/uNEHjGeV8iX/KaO7H6.png)

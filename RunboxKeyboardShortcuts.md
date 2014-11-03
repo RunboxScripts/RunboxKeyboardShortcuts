@@ -33,7 +33,7 @@ Shift + u         | Mark as unread
 Shortcut Key                      | Result
 --------------------------------- | ----------------------
 Ctrl + Shift + f<br>⌘ + Shift + f | Change "From:" address
-Ctrl + Shift + t<br>⌘ + Shift + t | Add "To:" recipients<br>(This command does not work in Chrome unless<br>Runbox Webmail is opened via [Application Shortcut](https://support.google.com/chrome/answer/95710?hl=en).)
+Ctrl + Shift + t<br>⌘ + Shift + t | Add "To:" recipients<br>*(This command does not work in Chrome unless<br>Runbox Webmail is opened via [Application Shortcut](https://support.google.com/chrome/answer/95710?hl=en).)*
 Ctrl + Shift + c<br>⌘ + Shift + c | Add "CC:" recipients
 Ctrl + Shift + b<br>⌘ + Shift + b | Add "BCC:" recipients
 Ctrl + Shift + s<br>⌘ + Shift + s | Edit subject
