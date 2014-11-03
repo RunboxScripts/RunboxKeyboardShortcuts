@@ -16,9 +16,9 @@ Click this link: https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardS
 * Firefox with Greasemonkey: https://addons.mozilla.org/en-US/firefox/addon/greasemonkey
 * Chrome with Tampermonkey: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
 
-2) Runbox Webmail 6 Enhanced Mode
+2) Runbox Webmail 6 Enhanced Mode. You can enable Enhanced mode by scrolling to the bottom of the Webmail and clicking the button shown in this image: [Enable Enhanced Mode](https://i.cloudup.com/uNEHjGeV8iX/yppLCy.png). You will know that Enhanced mode is enabled when you see this button: [Enhanced Mode Enabled](https://i.cloudup.com/uNEHjGeV8iX/U2BpSn.png)
 
-3) Upgraded "New" search bar
+3) Upgrade to the "New" search bar shown here: [Image of new search bar](https://i.cloudup.com/uNEHjGeV8iX/KaO7H6.png)
 
 ## Bugs, Questions, Improvement Requests
 
