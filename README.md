@@ -27,12 +27,14 @@ Click this link: https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardS
 
 Open an issue or email us: RunboxScripts@runbox.com
 
-* Report bugs
-* Ask any questions
+Feel free to:
+
+* Ask **any** questions
+* Report bugs and problems
 * Make suggestions
 * Request changes
 
-Thank you!
+We look forward to hearing from you, thanks!
 
 ## Changelog
 
