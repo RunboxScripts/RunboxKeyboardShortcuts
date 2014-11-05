@@ -25,7 +25,7 @@ Click this link: https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardS
 
 ## Bugs, Questions, Improvement Requests
 
-Open an issue or email us: RunboxScripts@runbox.com
+[Open an issue](https://github.com/RunboxScripts/RunboxKeyboardShortcuts/issues) or email us: RunboxScripts@runbox.com
 
 Feel free to:
 

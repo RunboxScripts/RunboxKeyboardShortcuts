@@ -48,8 +48,8 @@ Shortcut Key      | Result
 u                 | Refresh message list
 k or Down         | Next message
 j or Up           | Previous message
-Ctrl + .<br>⌘ + . | Next inbox section
-Ctrl + ,<br>⌘ + , | Previous inbox section
+><br>Ctrl + .<br>⌘ + . | Next inbox section
+<<br>Ctrl + ,<br>⌘ + , | Previous inbox section
  
 ### Jumping
 
