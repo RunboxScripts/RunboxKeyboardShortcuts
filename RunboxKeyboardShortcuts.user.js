@@ -327,13 +327,13 @@ if (rksRunboxView != 'compose') {
     });
     //
     // Next inbox section
-    Mousetrap.bind('ctrl+.', function() {
+    Mousetrap.bind(['.','mod+.'], function() {
         $('li').find('a:contains(">>")').click();
         // getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[2]/DIV/DIV[1]/UL[2]/LI[3]/A/SPAN/SPAN').click();
     });
     //
     // Previous inbox section
-    Mousetrap.bind('ctrl+,', function() {
+    Mousetrap.bind([',','mod+,'], function() {
         $('li').find('a:contains("<<")').click();
         // getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[2]/DIV/DIV[1]/UL[2]/LI[2]/A/SPAN/SPAN').click();
     });
