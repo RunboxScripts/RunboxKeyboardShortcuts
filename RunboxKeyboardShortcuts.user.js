@@ -8,7 +8,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/mousetrap.min.js
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
-// @version     1.0
+// @version     1.1
 // @grant       none
 // ==/UserScript==
 //
@@ -43,6 +43,8 @@ var rksMessageValue = getUrlParameter('message');
 if (/addresses/.test(self.location.href)) {
     var rksRunboxView = 'contacts';
 } else if (/compose/.test(self.location.href)) {
+    var rksRunboxView = 'compose';
+} else if (/forward/.test(self.location.href)) {
     var rksRunboxView = 'compose';
 } else if (/reply/.test(self.location.href)) {
     var rksRunboxView = 'compose';
