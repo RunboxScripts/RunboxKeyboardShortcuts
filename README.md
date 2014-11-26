@@ -40,4 +40,5 @@ We look forward to hearing from you, thanks!
 
 ## Changelog
 
+* 1.1: Redefined next panel/previous panel keybinds. Added forward window to compose state. Script now recognizes the compose window for a forwarded message to be a valid compose window.
 * 1.0: Initial commit
