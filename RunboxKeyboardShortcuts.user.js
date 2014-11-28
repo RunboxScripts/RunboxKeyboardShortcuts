@@ -8,7 +8,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/mousetrap.min.js
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
-// @version     1.1
+// @version     1.2
 // @grant       none
 // ==/UserScript==
 //
@@ -291,13 +291,13 @@ if (rksRunboxView == 'list') {
             var x = 0;
             // Check for j/k/up/down
             if (e.keyCode == 74)
-            x = - 1;
-             else if (e.keyCode == 38)
-            x = - 1;
-             else if (e.keyCode == 75)
             x = 1;
              else if (e.keyCode == 40)
             x = 1;
+             else if (e.keyCode == 75)
+            x = - 1;
+             else if (e.keyCode == 38)
+            x = - 1;
              else
             return ;
             divs[selectedDiv].style.backgroundColor = '';
@@ -516,8 +516,8 @@ if (rksRunboxView == 'contacts') {
                         <tbody> \
                         <tr><td class="h pl">Navigation</td></tr> \
                         <tr><td class="m pl">u</td><td>Refresh message list</td></tr> \
-                        <tr><td class="m pl">k or Down</td><td>Next message</td></tr> \
-                        <tr><td class="m pl">j or Up</td><td>Previous message</td></tr> \
+                        <tr><td class="m pl">j or Down</td><td>Next message</td></tr> \
+                        <tr><td class="m pl">k or Up</td><td>Previous message</td></tr> \
                         <tr><td class="m pl">Ctrl + .<br>&#8984; + .</td><td>Next inbox section</td></tr> \
                         <tr><td class="m pl">Ctrl + ,<br>&#8984; + ,</td><td>Previous inbox section</td></tr> \
                         <tr><td>&nbsp;</td></tr> \

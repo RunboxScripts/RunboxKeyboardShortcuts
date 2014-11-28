@@ -46,8 +46,8 @@ Ctrl + Enter<br>⌘ + Enter     | Send message
 Shortcut Key      | Result
 ----------------- | ----------------------
 u                 | Refresh message list
-k or Down         | Next message
-j or Up           | Previous message
+j or Down         | Next message
+k or Up           | Previous message
 ><br>Ctrl + .<br>⌘ + . | Next inbox section
 <<br>Ctrl + ,<br>⌘ + , | Previous inbox section
  
