@@ -8,7 +8,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/mousetrap.min.js
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
-// @version     1.4
+// @version     2.0
 // @grant       none
 // ==/UserScript==
 //
@@ -54,14 +54,34 @@ if (/addresses/.test(self.location.href)) {
     var rksRunboxView = 'read';
 } else {
     var rksRunboxView = 'list';
-}//
-// Append popup CSS to head
+}
+//
+// Prevent checkbox from stealing focus
+$('input[type=checkbox]').mousedown(function (event) {
+    event.preventDefault(); // this would stop mousedown from continuing and would not focus
+});
+//
+// Append script CSS to head
 $('head').append (
     '<style media="screen" type="text/css"> \
+    .submenu ul li ul.sub { \
+        z-index:7; \
+    } \
     .rksMailrowHover { \
-       border-left: 5px solid #2765B4 !important; \
-       border-bottom: 1px solid #2765B4 !important; \
-       margin-left: 0px !important; \
+        position:relative; \
+    } \
+    .rksMailrowHover::before { \
+        display:block; \
+        content:"."; \
+        color:transparent; \
+        font-size:0; \
+        border-left:5px solid #2765B4; \
+        height:100%; \
+        position:absolute; \
+        left:-5px; \
+        padding:1px 0; \
+        top:-1px; \
+        bottom:-1px; \
     }'
 );
 //
@@ -257,18 +277,7 @@ if (rksRunboxView == 'list') {
         callback = callback || function () {
         };
         var divs = document.getElementById('mailmessages').getElementsByClassName('mailrow'),
-        selectedDiv = 0,
-        i;
-        for (i = 0; i < divs.length; i++) {
-            divs[i].onmouseover = (function (i) {
-                return function () {
-                    divs[selectedDiv].className = divs[selectedDiv].className.replace('rksMailrowHover','');
-                    selectedDiv = i;
-                    divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowHover';
-                    callback(divs[selectedDiv], selectedDiv);
-                }
-            }) (i);
-        }
+        selectedDiv = 0,i;
         divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowHover';
         //
         // Check message
@@ -615,9 +624,12 @@ $('head').append (
         position: absolute; \
         right: -7px; \
         top: -9px; \
-        background-color: #2B91AF; \
+        background-color: #155D97; \
         color: #FFF; \
         text-shadow: none; \
+    } \
+    a.b-close:hover { \
+        color:#000000; \
     }'
 );
 //
