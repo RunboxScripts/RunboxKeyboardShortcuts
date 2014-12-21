@@ -40,12 +40,12 @@ We look forward to hearing from you, thanks!
 
 ## Changelog
 
-* 2.0: Now supports the new Runbox Aero Theme. Backwards compatible with old themes.
+* 2.0: Added support for new Aero theme. Backwards compatible with old themes.
 	* Changed message selection styling to fit with Aero theme.
 	* Fixed bug where checkbox was auto-stealing focus.
 	* Mouseover no longer affects message selection focus.
 * 1.4: Updated message selection method.
 * 1.3: Changed message selection color.
 * 1.2: Fixed bug where j/k keybinds were accidentally inverted.
-* 1.1: Redefined next panel/previous panel keybinds.Added forward window to compose state. Script now properly recognizes the compose window when forwarding a message.
+* 1.1: Redefined next panel/previous panel keybinds. Added forward window to compose state. Script now properly recognizes the compose window when forwarding a message.
 * 1.0: Initial commit.
