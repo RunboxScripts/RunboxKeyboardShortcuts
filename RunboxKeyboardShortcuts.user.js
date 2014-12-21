@@ -8,7 +8,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/mousetrap.min.js
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
-// @version     1.2
+// @version     1.3
 // @grant       none
 // ==/UserScript==
 //
@@ -255,12 +255,12 @@ if (rksRunboxView == 'list') {
                 return function () {
                     divs[selectedDiv].style.backgroundColor = '';
                     selectedDiv = i;
-                    divs[selectedDiv].style.backgroundColor = '#E6EAF2';
+                    divs[selectedDiv].style.backgroundColor = '##E1EEFF';
                     callback(divs[selectedDiv], selectedDiv);
                 }
             }) (i);
         }
-        divs[selectedDiv].style.backgroundColor = '#E6EAF2';
+        divs[selectedDiv].style.backgroundColor = '#E1EEFF';
         //
         // Check message
         //
@@ -304,7 +304,7 @@ if (rksRunboxView == 'list') {
             selectedDiv = ((selectedDiv + x) % divs.length);
             selectedDiv = selectedDiv < 0 ?
             divs.length + selectedDiv : selectedDiv;
-            divs[selectedDiv].style.backgroundColor = '#E6EAF2';
+            divs[selectedDiv].style.backgroundColor = '#E1EEFF';
             callback(divs[selectedDiv], selectedDiv);
         };
     }) (ondivchange);

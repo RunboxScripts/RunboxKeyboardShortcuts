@@ -40,6 +40,7 @@ We look forward to hearing from you, thanks!
 
 ## Changelog
 
+* 1.3: Changed message selection color to #E1EEFF to match Aero theme.
 * 1.2: Fixed bug where j/k keybinds were accidentally inverted.
 * 1.1: Redefined next panel/previous panel keybinds. Added forward window to compose state. Script now properly recognizes the compose window when forwarding a message.
-* 1.0: Initial commit
+* 1.0: Initial commit.
