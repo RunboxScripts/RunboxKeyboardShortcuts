@@ -8,7 +8,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/mousetrap.min.js
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
-// @version     1.3
+// @version     1.4
 // @grant       none
 // ==/UserScript==
 //
@@ -54,7 +54,16 @@ if (/addresses/.test(self.location.href)) {
     var rksRunboxView = 'read';
 } else {
     var rksRunboxView = 'list';
-}
+}//
+// Append popup CSS to head
+$('head').append (
+    '<style media="screen" type="text/css"> \
+    .rksMailrowHover { \
+       border-left: 5px solid #2765B4 !important; \
+       border-bottom: 1px solid #2765B4 !important; \
+       margin-left: 0px !important; \
+    }'
+);
 //
 // ========
 // Actions
@@ -253,14 +262,14 @@ if (rksRunboxView == 'list') {
         for (i = 0; i < divs.length; i++) {
             divs[i].onmouseover = (function (i) {
                 return function () {
-                    divs[selectedDiv].style.backgroundColor = '';
+                    divs[selectedDiv].className = divs[selectedDiv].className.replace('rksMailrowHover','');
                     selectedDiv = i;
-                    divs[selectedDiv].style.backgroundColor = '##E1EEFF';
+                    divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowHover';
                     callback(divs[selectedDiv], selectedDiv);
                 }
             }) (i);
         }
-        divs[selectedDiv].style.backgroundColor = '#E1EEFF';
+        divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowHover';
         //
         // Check message
         //
@@ -300,11 +309,11 @@ if (rksRunboxView == 'list') {
             x = - 1;
              else
             return ;
-            divs[selectedDiv].style.backgroundColor = '';
+            divs[selectedDiv].className = divs[selectedDiv].className.replace('rksMailrowHover','');
             selectedDiv = ((selectedDiv + x) % divs.length);
             selectedDiv = selectedDiv < 0 ?
             divs.length + selectedDiv : selectedDiv;
-            divs[selectedDiv].style.backgroundColor = '#E1EEFF';
+            divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowHover';
             callback(divs[selectedDiv], selectedDiv);
         };
     }) (ondivchange);
