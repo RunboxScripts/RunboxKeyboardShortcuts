@@ -8,7 +8,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/mousetrap.min.js
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
-// @version     2.0
+// @version     2.1
 // @grant       none
 // ==/UserScript==
 //
@@ -18,7 +18,7 @@
 //
 // Get Element by XPath
 function getElementByXpath(path) {
-    return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null) .singleNodeValue;
+    return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 };
 //
 // Get Variables from URL
@@ -26,11 +26,9 @@ function getUrlParameter(sParam)
 {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++)
-    {
+    for (var i = 0; i < sURLVariables.length; i++) {
         var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam)
-        {
+        if (sParameterName[0] == sParam) {
             return sParameterName[1];
         }
     }
@@ -56,9 +54,9 @@ if (/addresses/.test(self.location.href)) {
     var rksRunboxView = 'list';
 }
 //
-// Prevent checkbox from stealing focus
+// Prevent checkboxes from stealing focus
 $('input[type=checkbox]').mousedown(function (event) {
-    event.preventDefault(); // this would stop mousedown from continuing and would not focus
+    event.preventDefault();
 });
 //
 // Append script CSS to head
@@ -67,10 +65,10 @@ $('head').append (
     .submenu ul li ul.sub { \
         z-index:7; \
     } \
-    .rksMailrowHover { \
+    .rksMailrowSelect { \
         position:relative; \
     } \
-    .rksMailrowHover::before { \
+    .rksMailrowSelect::before { \
         display:block; \
         content:"."; \
         color:transparent; \
@@ -218,7 +216,7 @@ Mousetrap.bind('e r', function () {
 // Run only in list view
 if (rksRunboxView == 'list') {
     //
-    // Check all/none
+    // Select all/none
     Mousetrap.bind('mod+a', function () {
         $('[name=checkall]').click();
         CheckAll();
@@ -273,14 +271,14 @@ if (rksRunboxView == 'list') {
     function ondivchange(div, i) {
         // div is the highlighted div
         // i is index of said div
-    }(function (callback) {
+    } (function (callback) {
         callback = callback || function () {
         };
         var divs = document.getElementById('mailmessages').getElementsByClassName('mailrow'),
         selectedDiv = 0,i;
-        divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowHover';
+        divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowSelect';
         //
-        // Check message
+        // Select message
         //
         Mousetrap.bind(['x','space'], function () {
             divs[selectedDiv].click();
@@ -318,11 +316,11 @@ if (rksRunboxView == 'list') {
             x = - 1;
              else
             return ;
-            divs[selectedDiv].className = divs[selectedDiv].className.replace('rksMailrowHover','');
+            divs[selectedDiv].className = divs[selectedDiv].className.replace('rksMailrowSelect','');
             selectedDiv = ((selectedDiv + x) % divs.length);
             selectedDiv = selectedDiv < 0 ?
             divs.length + selectedDiv : selectedDiv;
-            divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowHover';
+            divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowSelect';
             callback(divs[selectedDiv], selectedDiv);
         };
     }) (ondivchange);
@@ -491,7 +489,7 @@ if (rksRunboxView == 'contacts') {
                         <tbody> \
                         <tr><td class="m pl">Ctrl + Shift + f<br>&#8984; + Shift + f</td><td>Change "From:" address</td></tr> \
                         <tr><td>&nbsp;</td></tr> \
-                        <tr><td class="m pl">Ctrl + Shift + t<br>&#8984; + Shift + t</td><td>Add "To:" recipients</td><td class="pl">&larr; This command does not work in Chrome unless<br>Runbox is opened via <a href="https://support.google.com/chrome/answer/95710?hl=en" target="_blank">Application Shortcut</a>.</td></tr> \
+                        <tr><td class="m pl">Ctrl + Shift + t<br>&#8984; + Shift + t</td><td>Add "To:" recipients</td><td class="pl">&#60; This command does not work in Chrome unless<br>Runbox is opened via <a href="https://support.google.com/chrome/answer/95710?hl=en" target="_blank">Application Shortcut</a>.</td></tr> \
                         <tr><td>&nbsp;</td></tr> \
                         <tr><td class="m pl">Ctrl + Shift + c<br>&#8984; + Shift + c</td><td>Add "CC:" recipients</td></tr> \
                         <tr><td>&nbsp;</td></tr> \
@@ -517,27 +515,28 @@ if (rksRunboxView == 'contacts') {
                         <tr><td class="m pl">r</td><td>Reply to message</td></tr> \
                         <tr><td class="m pl">a</td><td>Reply to all</td></tr> \
                         <tr><td class="m pl">f</td><td>Forward message</td></tr> \
-                        <tr><td class="m pl">#</td><td>Delete message</td></tr> \
-                        <tr><td>&nbsp;</td></tr> \
                         <tr><td class="m pl">/</td><td>Search mail</td></tr> \
-                        <tr><td class="m pl">x or Space</td><td>Check message</td></tr> \
-                        <tr><td class="m pl">Ctrl + a<br>&#8984; + a</td><td>Check All/None</td></tr> \
+                        <tr><td>&nbsp;</td></tr> \
+                        <tr><td class="h pl">Selections</td></tr> \
+                        <tr><td class="m pl">x or Space</td><td>Select message</td></tr> \
+                        <tr><td class="m pl">Ctrl + a<br>&#8984; + a</td><td>Select All/None</td></tr> \
                         <tr><td class="m pl">Shift + i</td><td>Mark as read</td></tr> \
                         <tr><td class="m pl">Shift + u</td><td>Mark as unread</td></tr> \
-                        <tr><td class="m pl">+ or =</td><td>Flag message</td></tr> \
-                        <tr><td class="m pl">-</td><td>Unflag message</td></tr> \
+                        <tr><td class="m pl">+ or =</td><td>Flag message(s)</td></tr> \
+                        <tr><td class="m pl">-</td><td>Unflag message(s)</td></tr> \
                         <tr><td class="m pl">!</td><td>Report spam</td></tr> \
                         <tr><td class="m pl">@</td><td>Not spam</td></tr> \
+                        <tr><td class="m pl">#</td><td>Delete message(s)</td></tr> \
                         </tbody> \
                         </table> \
                         <table id="rksPtable"> \
                         <tbody> \
                         <tr><td class="h pl">Navigation</td></tr> \
                         <tr><td class="m pl">u</td><td>Refresh message list</td></tr> \
-                        <tr><td class="m pl">j or Down</td><td>Next message</td></tr> \
-                        <tr><td class="m pl">k or Up</td><td>Previous message</td></tr> \
-                        <tr><td class="m pl">Ctrl + .<br>&#8984; + .</td><td>Next inbox section</td></tr> \
-                        <tr><td class="m pl">Ctrl + ,<br>&#8984; + ,</td><td>Previous inbox section</td></tr> \
+                        <tr><td class="m pl">j or Down</td><td>Next message in list</td></tr> \
+                        <tr><td class="m pl">k or Up</td><td>Previous message in list</td></tr> \
+                        <tr><td class="m pl">&#62;<br>Ctrl + .<br>&#8984; + .</td><td>Next inbox section</td></tr> \
+                        <tr><td class="m pl">&#60;<br>Ctrl + ,<br>&#8984; + ,</td><td>Previous inbox section</td></tr> \
                         <tr><td>&nbsp;</td></tr> \
                         <tr><td class="h pl">Jumping</td></tr> \
                         <tr><td class="m pl">g + a</td><td>Go to All mail</td></tr> \
@@ -591,6 +590,7 @@ $('head').append (
         font-size: 14px; \
         font-weight: bold; \
         line-height: 1em; \
+        margin-top: -4px; \
     } \
     #rksPtable { \
         float: left; \
@@ -609,11 +609,11 @@ $('head').append (
     } \
     #rksPtable td.h { \
        font-weight: bold; \
-       border-left: 1px solid #ABCDEF; \
+       border-left: 1px solid #ABD2FD; \
     } \
     #rksPtable td.m { \
        font-family: monospace; \
-       border-left: 1px solid #ABCDEF; \
+       border-left: 1px solid #ABD2FD; \
     } \
     .b-close { \
         cursor:pointer; \

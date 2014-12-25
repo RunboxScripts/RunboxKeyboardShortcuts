@@ -1,6 +1,7 @@
 # Runbox Keyboard Shortcuts
 
 * [Actions](#actions)
+* [Selections](#selections)
 * [Composing](#composing)
 * [Navigation](#navigation)
 * [Jumping](#jumping)
@@ -17,23 +18,28 @@ o or Enter        | Open message
 r                 | Reply to message
 a                 | Reply to all
 f                 | Forward message
-#                 | Delete message
 /                 | Search mail
-x or Space        | Check message
-Ctrl + a<br>⌘ + a | Check All/None
+
+### Selection
+
+Shortcut Key      | Result
+----------------- | ----------------
+x or Space        | Select message
+Ctrl + a<br>⌘ + a | Select All/None
 Shift + i         | Mark as read
 Shift + u         | Mark as unread
-+ or =            | Flag message
--                 | Unflag message
++ or =            | Flag message(s)
+-                 | Unflag message(s)
 !                 | Report spam
 @                 | Not spam
+#                 | Delete message(s)
 
 ### Composing 
 
 Shortcut Key                      | Result
 --------------------------------- | ----------------------
 Ctrl + Shift + f<br>⌘ + Shift + f | Change "From:" address
-Ctrl + Shift + t<br>⌘ + Shift + t | Add "To:" recipients<br>*(This command does not work in Chrome unless<br>Runbox Webmail is opened via [Application Shortcut](https://support.google.com/chrome/answer/95710?hl=en).)*
+Ctrl + Shift + t<br>⌘ + Shift + t | Add "To:" recipients<br>*(This command does not work in Chrome unless<br>Runbox is opened via [Application Shortcut](https://support.google.com/chrome/answer/95710).)*
 Ctrl + Shift + c<br>⌘ + Shift + c | Add "CC:" recipients
 Ctrl + Shift + b<br>⌘ + Shift + b | Add "BCC:" recipients
 Ctrl + Shift + s<br>⌘ + Shift + s | Edit subject
@@ -46,10 +52,10 @@ Ctrl + Enter<br>⌘ + Enter     | Send message
 Shortcut Key      | Result
 ----------------- | ----------------------
 u                 | Refresh message list
-j or Down         | Next message
-k or Up           | Previous message
-><br>Ctrl + .<br>⌘ + . | Next inbox section
-<<br>Ctrl + ,<br>⌘ + , | Previous inbox section
+j or Down         | Next message in list
+k or Up           | Previous message in list
+&#62;<br>Ctrl + .<br>⌘ + . | Next inbox section
+&#60;<br>Ctrl + ,<br>⌘ + , | Previous inbox section
  
 ### Jumping
 

@@ -33,13 +33,13 @@ Feel free to:
 
 * Ask **any** questions
 * Report bugs and problems
-* Make suggestions
-* Request changes
+* Suggest new key shortcuts
 
 We look forward to hearing from you, thanks!
 
 ## Changelog
 
+* 2.1: Clarified shortcut details. Cleaned up CSS and JS notation.
 * 2.0: Added support for new Aero theme. Backwards compatible with old themes.
 	* Changed message selection styling to fit with Aero theme.
 	* Fixed bug where checkbox was auto-stealing focus.
