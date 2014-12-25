@@ -20,7 +20,7 @@ a                 | Reply to all
 f                 | Forward message
 /                 | Search mail
 
-### Selection
+### Selections
 
 Shortcut Key      | Result
 ----------------- | ----------------
