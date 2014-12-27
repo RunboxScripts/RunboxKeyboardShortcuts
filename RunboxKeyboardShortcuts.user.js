@@ -80,6 +80,19 @@ $('head').append (
         padding:1px 0; \
         top:-1px; \
         bottom:-1px; \
+    } \
+        .rksMailrowSelect::after { \
+        display:block; \
+        content:"."; \
+        color:transparent; \
+        font-size:0; \
+        border-left:5px solid #2765B4; \
+        height:100%; \
+        position:absolute; \
+        right:-5px; \
+        padding:1px 0; \
+        top:-1px; \
+        bottom:-1px; \
     }'
 );
 //
