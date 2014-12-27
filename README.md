@@ -39,6 +39,7 @@ We look forward to hearing from you, thanks!
 
 ## Changelog
 
+* 2.2: Improved visibility of message indicator.
 * 2.1: Clarified shortcut details. Cleaned up CSS and JS notation.
 * 2.0: Added support for new Aero theme. Backwards compatible with old themes.
 	* Changed message selection styling to fit with Aero theme.
