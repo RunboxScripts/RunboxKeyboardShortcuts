@@ -8,7 +8,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/mousetrap.min.js
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
-// @version     2.2
+// @version     2.3
 // @grant       none
 // ==/UserScript==
 //
@@ -65,10 +65,10 @@ $('head').append (
     .submenu ul li ul.sub { \
         z-index:7; \
     } \
-    .rksMailrowSelect { \
+    .rksMailrowFocus { \
         position:relative; \
     } \
-    .rksMailrowSelect::before { \
+    .rksMailrowFocus::before { \
         display:block; \
         content:"."; \
         color:transparent; \
@@ -81,7 +81,7 @@ $('head').append (
         top:-1px; \
         bottom:-1px; \
     } \
-        .rksMailrowSelect::after { \
+        .rksMailrowFocus::after { \
         display:block; \
         content:"."; \
         color:transparent; \
@@ -280,7 +280,7 @@ if (rksRunboxView == 'list') {
     });
     //
     // Navigate message list
-    // TODO: rewrite, cleanup, optimize
+    // TODO: rewrite, cleanup, optimize, jquery?
     function ondivchange(div, i) {
         // div is the highlighted div
         // i is index of said div
@@ -289,7 +289,7 @@ if (rksRunboxView == 'list') {
         };
         var divs = document.getElementById('mailmessages').getElementsByClassName('mailrow'),
         selectedDiv = 0,i;
-        divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowSelect';
+        divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowFocus';
         //
         // Select message
         //
@@ -298,7 +298,7 @@ if (rksRunboxView == 'list') {
             return false;
         });
         //
-        // Reply to selected message
+        // Reply to focused message
         Mousetrap.bind('r', function() {
             divs[selectedDiv].getElementsByClassName('maillink')[0].click();
             return false;
@@ -329,11 +329,11 @@ if (rksRunboxView == 'list') {
             x = - 1;
              else
             return ;
-            divs[selectedDiv].className = divs[selectedDiv].className.replace('rksMailrowSelect','');
+            divs[selectedDiv].className = divs[selectedDiv].className.replace('rksMailrowFocus','');
             selectedDiv = ((selectedDiv + x) % divs.length);
             selectedDiv = selectedDiv < 0 ?
             divs.length + selectedDiv : selectedDiv;
-            divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowSelect';
+            divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowFocus';
             callback(divs[selectedDiv], selectedDiv);
         };
     }) (ondivchange);
@@ -348,7 +348,7 @@ if (rksRunboxView != 'compose') {
     //
     // Refresh message list
     Mousetrap.bind('u', function() {
-        $('.btn.refresh')[0].click();
+        $('.btn.menu_refresh')[0].click();
     });
     //
     // Search mail
