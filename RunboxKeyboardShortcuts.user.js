@@ -8,7 +8,8 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/mousetrap.min.js
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
-// @version     2.3
+// @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
+// @version     2.4
 // @grant       none
 // ==/UserScript==
 //
@@ -22,8 +23,7 @@ function getElementByXpath(path) {
 };
 //
 // Get Variables from URL
-function getUrlParameter(sParam)
-{
+function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
     for (var i = 0; i < sURLVariables.length; i++) {
@@ -55,9 +55,12 @@ if (/addresses/.test(self.location.href)) {
 }
 //
 // Prevent checkboxes from stealing focus
-$('input[type=checkbox]').mousedown(function (event) {
-    event.preventDefault();
-});
+function checkboxFocusReset() {
+    $('input[type=checkbox]').mousedown(function(event) {
+        event.preventDefault();
+    });
+}
+waitForKeyElements(".m1:first", checkboxFocusReset);
 //
 // Append script CSS to head
 $('head').append (
@@ -101,14 +104,14 @@ $('head').append (
 // ========
 //
 // Compose message
-Mousetrap.bind('c', function () {
+Mousetrap.bind('c', function() {
     if (rksRunboxView != 'compose') {
         openCompose('/mail/compose', 900, 700, '_blank');
     }
 });
 //
 // Delete message
-Mousetrap.bind('#', function () {
+Mousetrap.bind('#', function() {
     if (rksRunboxView == 'read') {
         window.location = '/mail/list?delete_msg=1&message=' + rksMessageValue;
     } else if (rksRunboxView == 'list') {
@@ -118,7 +121,7 @@ Mousetrap.bind('#', function () {
 });
 //
 // Mark as read
-Mousetrap.bind('I', function () {
+Mousetrap.bind('I', function() {
     if (rksRunboxView == 'list') {
         document.list.mark_msg.value = '1';
         document.list.mark_read.value = '1';
@@ -127,7 +130,7 @@ Mousetrap.bind('I', function () {
 });
 //
 // Mark as unread
-Mousetrap.bind('U', function () {
+Mousetrap.bind('U', function() {
     if (rksRunboxView == 'read') {
         window.location = '/mail/list?mark_msg=1&mark_read=0&message=' + rksMessageValue;
     } else if (rksRunboxView == 'list') {
@@ -138,7 +141,7 @@ Mousetrap.bind('U', function () {
 });
 //
 // Flag message
-Mousetrap.bind(['=','+'], function () {
+Mousetrap.bind(['=','+'], function() {
     if (rksRunboxView == 'read') {
         window.location = '/mail/list?flag_msg=1&flag_flagged=1&message=' + rksMessageValue;
     } else if (rksRunboxView == 'list') {
@@ -149,7 +152,7 @@ Mousetrap.bind(['=','+'], function () {
 });
 //
 // Unflag message
-Mousetrap.bind('-', function () {
+Mousetrap.bind('-', function() {
     if (rksRunboxView == 'read') {
         window.location = '/mail/list?flag_msg=1&flag_flagged=0&message=' + rksMessageValue;
     } else if (rksRunboxView == 'list') {
@@ -160,7 +163,7 @@ Mousetrap.bind('-', function () {
 });
 //
 // Report spam
-Mousetrap.bind('!', function () {
+Mousetrap.bind('!', function() {
     if (rksRunboxView == 'read') {
         window.location = '/mail/list?learn=spam&message=' + rksMessageValue;
     } else if (rksRunboxView == 'list') {
@@ -170,35 +173,36 @@ Mousetrap.bind('!', function () {
 });
 //
 // Show HTML Version
-Mousetrap.bind('h', function () {
+Mousetrap.bind('h', function() {
     if (rksRunboxView == 'read') {
-        getElementByXpath('//A[descendant::text()=\'Show HTML-version\']') .click();
+        $('.activetext:first').click();
+        //getElementByXpath('//A[descendant::text()=\'Show HTML-version\']').click();
     }
 });
 //
 // Reply to message
-Mousetrap.bind('r', function () {
+Mousetrap.bind('r', function() {
     if (rksRunboxView == 'read') {
         openCompose('/mail/reply?message=' + rksMessageValue, 900, 700, '_blank');
     }
 });
 //
 // Reply to all
-Mousetrap.bind('a', function () {
+Mousetrap.bind('a', function() {
     if (rksRunboxView == 'read') {
         openCompose('/mail/replyall?message=' + rksMessageValue, 900, 700, '_blank');
     }
 });
 //
 // Forward message
-Mousetrap.bind('f', function () {
+Mousetrap.bind('f', function() {
     if (rksRunboxView == 'read') {
         openCompose('/mail/forward?message=' + rksMessageValue, 900, 700, '_blank');
     }
 });
 //
 // Not Spam
-Mousetrap.bind('@', function () {
+Mousetrap.bind('@', function() {
     if (rksRunboxView == 'read') {
         window.location = '/mail/list?learn=innocent&message=' + rksMessageValue;
     } else if (rksRunboxView == 'list') {
@@ -208,18 +212,21 @@ Mousetrap.bind('@', function () {
 });
 //
 // Empty Drafts
-Mousetrap.bind('e d', function () {
-    getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[1]/TABLE/TBODY/TR[3]/TD/TABLE/TBODY/TR[2]/TD[1]/A[3]').click();
+Mousetrap.bind('e d', function() {
+    $('.empty_trash')[0].click();
+    //getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[1]/TABLE/TBODY/TR[3]/TD/TABLE/TBODY/TR[2]/TD[1]/A[3]').click();
 });
 //
 // Empty Spam
-Mousetrap.bind('e p', function () {
-    getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[1]/TABLE/TBODY/TR[3]/TD/TABLE/TBODY/TR[5]/TD[1]/A[3]').click();
+Mousetrap.bind('e p', function() {
+    $('.empty_trash')[1].click();
+    //getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[1]/TABLE/TBODY/TR[3]/TD/TABLE/TBODY/TR[5]/TD[1]/A[3]').click();
 });
 //
 // Empty Trash
-Mousetrap.bind('e r', function () {
-    getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[1]/TABLE/TBODY/TR[3]/TD/TABLE/TBODY/TR[7]/TD[1]/A[3]').click();
+Mousetrap.bind('e r', function() {
+    $('.empty_trash')[2].click();
+    //getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[1]/TABLE/TBODY/TR[3]/TD/TABLE/TBODY/TR[7]/TD[1]/A[3]').click();
 });
 //
 // ====================
@@ -230,15 +237,15 @@ Mousetrap.bind('e r', function () {
 if (rksRunboxView == 'list') {
     //
     // Select all/none
-    Mousetrap.bind('mod+a', function () {
-        $('[name=checkall]').click();
-        CheckAll();
+    Mousetrap.bind('mod+a', function() {
+        $('.checkall')[0].click();
+        // CheckAll();
         // getElementByXpath('//DIV[@id=\'messagecell\']/DIV[2]/DIV[1]/INPUT').click();
         return false;
     });
     //
     // Sort by flagged
-    Mousetrap.bind('s 1', function () {
+    Mousetrap.bind('s 1', function() {
         $('.orderflag')[0].click();
         // getElementByXpath('//DIV[@id=\'messagecell\']/DIV[2]/DIV[2]/NOBR/A[1]').click();
     });
@@ -280,20 +287,18 @@ if (rksRunboxView == 'list') {
     });
     //
     // Navigate message list
-    // TODO: rewrite, cleanup, optimize, jquery?
     function ondivchange(div, i) {
         // div is the highlighted div
         // i is index of said div
-    } (function (callback) {
-        callback = callback || function () {
+    } waitForKeyElements('.mailrow:first', (function (callback) {
+        callback = callback || function() {
         };
-        var divs = document.getElementById('mailmessages').getElementsByClassName('mailrow'),
-        selectedDiv = 0,i;
+        var divs = document.getElementById('mailmessages').getElementsByClassName('mailrow'),selectedDiv = 0,i;
         divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowFocus';
         //
         // Select message
         //
-        Mousetrap.bind(['x','space'], function () {
+        Mousetrap.bind(['x','space'], function() {
             divs[selectedDiv].click();
             return false;
         });
@@ -310,33 +315,41 @@ if (rksRunboxView == 'list') {
             return false;
         });
         //
-        // Unbind j/k/up/down
+        // Prevent default j/down/k/up
         Mousetrap.bind(['j','k','up','down'], function() {
             return false;
         });
         //
-        // j/k/up/down listeners
+        // Bind j/down/k/up
         document.onkeydown = function(e) {
             var x = 0;
-            // Check for j/k/up/down
-            if (e.keyCode == 74)
-            x = 1;
-             else if (e.keyCode == 40)
-            x = 1;
-             else if (e.keyCode == 75)
-            x = - 1;
-             else if (e.keyCode == 38)
-            x = - 1;
-             else
-            return ;
-            divs[selectedDiv].className = divs[selectedDiv].className.replace('rksMailrowFocus','');
-            selectedDiv = ((selectedDiv + x) % divs.length);
-            selectedDiv = selectedDiv < 0 ?
-            divs.length + selectedDiv : selectedDiv;
+            if (e.keyCode == 74) // j
+                x = 1;
+            else if (e.keyCode == 40) // down
+                x = 1;
+            else if (e.keyCode == 75) // k
+                x = -1;
+            else if (e.keyCode == 38) // up
+                x = -1;
+            else
+                return;
+            $('.mailrow').removeClass('rksMailrowFocus');
+            selectedDivEval = ((selectedDiv + x) % divs.length);
+            lastDiv = (divs.length - 1);
+            selectedDiv = selectedDiv + x;
+            if (selectedDivEval < 0 ) {
+                selectedDiv = 0;
+            }
+            if (selectedDiv == divs.length) {
+                selectedDiv = lastDiv;
+            }
+            if (divs.length == 1) {
+                selectedDiv = 0;
+            }
             divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowFocus';
             callback(divs[selectedDiv], selectedDiv);
         };
-    }) (ondivchange);
+    })); (ondivchange);
 }
 //
 // ===================
@@ -376,7 +389,8 @@ if (rksRunboxView != 'compose') {
     //
     // Go to All Mail
     Mousetrap.bind('g a', function() {
-        getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[1]/TABLE/TBODY/TR[3]/TD/TABLE/TBODY/TR[1]/TD[1]/A[2]').click();
+        $('#foldername_0').click();
+        //getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[1]/TABLE/TBODY/TR[3]/TD/TABLE/TBODY/TR[1]/TD[1]/A[2]').click();
 
     });
     //
@@ -424,7 +438,7 @@ if (rksRunboxView == 'compose') {
     //
     // From address resize
     var fromSel = $('[name=from]')[0];
-    fromSel.onblur = function () {
+    fromSel.onblur = function() {
         fromSel.size = 1;
     }
     //

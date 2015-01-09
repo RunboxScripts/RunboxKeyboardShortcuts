@@ -39,6 +39,7 @@ We look forward to hearing from you, thanks!
 
 ## Changelog
 
+* 2.4: Improved message focus logic. Fixed bug where checkboxes were stealing focus after an AJAX refresh.
 * 2.3: Rebound "Refresh message list" to new target.
 * 2.2: Improved visibility of message focus indicator.
 * 2.1: Clarified shortcut details. Cleaned up CSS and JS notation.
