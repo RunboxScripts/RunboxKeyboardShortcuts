@@ -9,7 +9,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @version     2.4
+// @version     2.5
 // @grant       none
 // ==/UserScript==
 //
@@ -175,8 +175,7 @@ Mousetrap.bind('!', function() {
 // Show HTML Version
 Mousetrap.bind('h', function() {
     if (rksRunboxView == 'read') {
-        $('.activetext:first').click();
-        //getElementByXpath('//A[descendant::text()=\'Show HTML-version\']').click();
+        getElementByXpath('//A[descendant::text()=\'Show HTML-version\']').click();
     }
 });
 //
