@@ -39,6 +39,7 @@ We look forward to hearing from you, thanks!
 
 ## Changelog
 
+* 2.6: Added print CSS stylesheet. Improved & minified all CSS.
 * 2.5: Reverted change to "Show HTML version" keybind.
 * 2.4: Improved message focus logic. Fixed bug where checkboxes were stealing focus after an AJAX refresh.
 * 2.3: Rebound "Refresh message list" to new target.

@@ -9,7 +9,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @version     2.5
+// @version     2.6
 // @grant       none
 // ==/UserScript==
 //
@@ -63,40 +63,7 @@ function checkboxFocusReset() {
 waitForKeyElements(".m1:first", checkboxFocusReset);
 //
 // Append script CSS to head
-$('head').append (
-    '<style media="screen" type="text/css"> \
-    .submenu ul li ul.sub { \
-        z-index:7; \
-    } \
-    .rksMailrowFocus { \
-        position:relative; \
-    } \
-    .rksMailrowFocus::before { \
-        display:block; \
-        content:"."; \
-        color:transparent; \
-        font-size:0; \
-        border-left:5px solid #2765B4; \
-        height:100%; \
-        position:absolute; \
-        left:-5px; \
-        padding:1px 0; \
-        top:-1px; \
-        bottom:-1px; \
-    } \
-        .rksMailrowFocus::after { \
-        display:block; \
-        content:"."; \
-        color:transparent; \
-        font-size:0; \
-        border-left:5px solid #2765B4; \
-        height:100%; \
-        position:absolute; \
-        right:-5px; \
-        padding:1px 0; \
-        top:-1px; \
-        bottom:-1px; \
-    }'
+$('head').append ('<style type="text/css" media="screen"> .submenu ul li ul.sub{z-index:7}.rksMailrowFocus{position:relative}.rksMailrowFocus::before{display:block;content:".";color:transparent;font-size:0;border-left:5px solid #2765B4;height:100%;position:absolute;left:-5px;padding:1px 0;top:-1px;bottom:-1px}.rksMailrowFocus::after{display:block;content:".";color:transparent;font-size:0;border-left:5px solid #2765B4;height:100%;position:absolute;right:-5px;padding:1px 0;top:-1px;bottom:-1px}</style>'
 );
 //
 // ========
@@ -600,69 +567,14 @@ if (rksRunboxView == 'contacts') {
 }
 //
 // Append popup CSS to head
-$('head').append (
-    '<style media="screen" type="text/css"> \
-    #rksPdiv { \
-        font-family: inherit; \
-        background-color:#fff; \
-        border-radius:15px; \
-        color: #222; \
-        display:none; \
-        padding:20px; \
-        min-width: 360px; \
-        min-height: 180px; \
-    } \
-    #rksPtitle { \
-        font-size: 14px; \
-        font-weight: bold; \
-        line-height: 1em; \
-        margin-top: -4px; \
-    } \
-    #rksPtable { \
-        float: left; \
-        padding-top: 14px !important; \
-    } \
-    #rksPtable td { \
-        color: #222 !important; \
-        font-size: 12px !important; \
-        line-height: 1.1em; \
-        padding-right: 2em; \
-        horizontal-align: left; \
-        vertical-align: top; \
-    } \
-    #rksPtable td.pl { \
-        padding-left: 1em; \
-    } \
-    #rksPtable td.h { \
-       font-weight: bold; \
-       border-left: 1px solid #ABD2FD; \
-    } \
-    #rksPtable td.m { \
-       font-family: monospace; \
-       border-left: 1px solid #ABD2FD; \
-    } \
-    .b-close { \
-        cursor:pointer; \
-        border-radius: 7px; \
-        box-shadow: none; \
-        font: bold 16px sans-serif !important; \
-        padding: 0px 6px 3px; \
-        position: absolute; \
-        right: -7px; \
-        top: -9px; \
-        background-color: #155D97; \
-        color: #FFF; \
-        text-shadow: none; \
-    } \
-    a.b-close:hover { \
-        color:#000000; \
-    }'
+$('head').append ('<style type="text/css" media="screen"> #rksPdiv{font-family:inherit;background-color:#fff;border-radius:15px;color:#222;display:none;padding:20px;min-width:360px;min-height:180px}#rksPtitle{font-size:14px;font-weight:700;line-height:1em;margin-top:-4px}#rksPtable{float:left;padding-top:14px!important}#rksPtable td{color:#222!important;font-size:12px!important;line-height:1.1em;padding-right:2em;horizontal-align:left;vertical-align:top}#rksPtable td.pl{padding-left:1em}#rksPtable td.h{font-weight:700;border-left:1px solid #ABD2FD}#rksPtable td.m{font-family:monospace;border-left:1px solid #ABD2FD}.b-close{cursor:pointer;border-radius:7px;box-shadow:none;font:700 16px sans-serif!important;padding:0 6px 3px;position:absolute;right:-7px;top:-9px;background-color:#155D97;color:#FFF;text-shadow:none}a.b-close:hover{color:#000}</style> \
+<style type="text/css" media="print"> #rksPdiv{display:none}</style>'
 );
 //
 // Append popup HTML to body
 $('body').append (
     '<div id="rksPdiv"> \
-    <a class="b-close">x<a/> \
+    <a class="b-close">x</a> \
     ' + rksPcontent + ' \
     </div>'
 );
