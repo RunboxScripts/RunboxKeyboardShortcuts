@@ -9,19 +9,14 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @version     2.6
+// @version     2.7
 // @grant       none
 // ==/UserScript==
-//
-// ========================
-// Functions and Variables
-// ========================
-//
+// FUNCTIONS AND VARIABLES
 // Get Element by XPath
 function getElementByXpath(path) {
     return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 };
-//
 // Get Variables from URL
 function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1);
@@ -33,225 +28,148 @@ function getUrlParameter(sParam) {
         }
     }
 }
-//
 // Set Message Value
 var rksMessageValue = getUrlParameter('message');
-//
 // Get Current View
-if (/addresses/.test(self.location.href)) {
+if (/\/addresses/.test(self.location.href)) {
     var rksRunboxView = 'contacts';
-} else if (/compose/.test(self.location.href)) {
+} else if (/\/compose/.test(self.location.href)) {
     var rksRunboxView = 'compose';
-} else if (/forward/.test(self.location.href)) {
+} else if (/\/forward/.test(self.location.href)) {
     var rksRunboxView = 'compose';
-} else if (/reply/.test(self.location.href)) {
+} else if (/\/reply/.test(self.location.href)) {
     var rksRunboxView = 'compose';
-} else if (/send/.test(self.location.href)) {
+} else if (/\/send/.test(self.location.href)) {
     var rksRunboxView = 'compose';
-} else if (/read/.test(self.location.href)) {
+} else if (/\/read/.test(self.location.href)) {
     var rksRunboxView = 'read';
 } else {
     var rksRunboxView = 'list';
 }
-//
 // Prevent checkboxes from stealing focus
 function checkboxFocusReset() {
     $('input[type=checkbox]').mousedown(function(event) {
         event.preventDefault();
     });
 }
+// Refresh checkbox state upon Ajax refresh
 waitForKeyElements(".m1:first", checkboxFocusReset);
-//
 // Append script CSS to head
-$('head').append ('<style type="text/css" media="screen"> .submenu ul li ul.sub{z-index:7}.rksMailrowFocus{position:relative}.rksMailrowFocus::before{display:block;content:".";color:transparent;font-size:0;border-left:5px solid #2765B4;height:100%;position:absolute;left:-5px;padding:1px 0;top:-1px;bottom:-1px}.rksMailrowFocus::after{display:block;content:".";color:transparent;font-size:0;border-left:5px solid #2765B4;height:100%;position:absolute;right:-5px;padding:1px 0;top:-1px;bottom:-1px}</style>'
-);
-//
-// ========
-// Actions
-// ========
-//
+$('head').append ('<style type="text/css" media="screen"> .submenu ul li ul.sub{z-index:7}.rksMailrowFocus{position:relative}.rksMailrowFocus::before{display:block;content:".";color:transparent;font-size:0;border-left:5px solid #2765B4;height:100%;position:absolute;left:-5px;padding:1px 0;top:-1px;bottom:-1px}.rksMailrowFocus::after{display:block;content:".";color:transparent;font-size:0;border-left:5px solid #2765B4;height:100%;position:absolute;right:-5px;padding:1px 0;top:-1px;bottom:-1px}</style>');
+// ACTIONS
 // Compose message
 Mousetrap.bind('c', function() {
     if (rksRunboxView != 'compose') {
-        openCompose('/mail/compose', 900, 700, '_blank');
+        $('#menuFoldersCompose a')[0].click();
     }
 });
-//
 // Delete message
 Mousetrap.bind('#', function() {
-    if (rksRunboxView == 'read') {
-        window.location = '/mail/list?delete_msg=1&message=' + rksMessageValue;
-    } else if (rksRunboxView == 'list') {
-        document.list.delete_msg.value = '1';
-        document.list.submit();
-    }
+    $('#menuDelete a')[0].click();
 });
-//
 // Mark as read
 Mousetrap.bind('I', function() {
     if (rksRunboxView == 'list') {
-        document.list.mark_msg.value = '1';
-        document.list.mark_read.value = '1';
-        document.list.submit();
+        $('#menuRead a')[0].click();
     }
 });
-//
 // Mark as unread
 Mousetrap.bind('U', function() {
-    if (rksRunboxView == 'read') {
-        window.location = '/mail/list?mark_msg=1&mark_read=0&message=' + rksMessageValue;
-    } else if (rksRunboxView == 'list') {
-        document.list.mark_msg.value = '1';
-        document.list.mark_read.value = '0';
-        document.list.submit();
-    }
+    $('#menuUnread a')[0].click();
 });
-//
 // Flag message
 Mousetrap.bind(['=','+'], function() {
-    if (rksRunboxView == 'read') {
-        window.location = '/mail/list?flag_msg=1&flag_flagged=1&message=' + rksMessageValue;
-    } else if (rksRunboxView == 'list') {
-        document.list.flag_msg.value = '1';
-        document.list.flag_flagged.value = '1';
-        document.list.submit();
-    }
+    $('#menuFlag a')[0].click()
 });
-//
 // Unflag message
 Mousetrap.bind('-', function() {
-    if (rksRunboxView == 'read') {
-        window.location = '/mail/list?flag_msg=1&flag_flagged=0&message=' + rksMessageValue;
-    } else if (rksRunboxView == 'list') {
-        document.list.flag_msg.value = '1';
-        document.list.flag_flagged.value = '0';
-        document.list.submit();
-    }
+    $('#menuUnflag a')[0].click()
 });
-//
 // Report spam
 Mousetrap.bind('!', function() {
-    if (rksRunboxView == 'read') {
-        window.location = '/mail/list?learn=spam&message=' + rksMessageValue;
-    } else if (rksRunboxView == 'list') {
-        document.list.learn.value = 'spam';
-        document.list.submit();
-    }
+    $('#menuSpam a')[0].click()
 });
-//
-// Show HTML Version
-Mousetrap.bind('h', function() {
-    if (rksRunboxView == 'read') {
-        getElementByXpath('//A[descendant::text()=\'Show HTML-version\']').click();
-    }
+// Not Spam
+Mousetrap.bind('@', function() {
+    $('#menuNotSpam a')[0].click()
 });
-//
 // Reply to message
 Mousetrap.bind('r', function() {
     if (rksRunboxView == 'read') {
-        openCompose('/mail/reply?message=' + rksMessageValue, 900, 700, '_blank');
+    	$('#menuReply a')[0].click()
     }
 });
-//
 // Reply to all
 Mousetrap.bind('a', function() {
     if (rksRunboxView == 'read') {
-        openCompose('/mail/replyall?message=' + rksMessageValue, 900, 700, '_blank');
+    	$('#menuReplyAll a')[0].click()
     }
 });
-//
 // Forward message
 Mousetrap.bind('f', function() {
-    if (rksRunboxView == 'read') {
-        openCompose('/mail/forward?message=' + rksMessageValue, 900, 700, '_blank');
+	if (rksRunboxView == 'read') {
+		$('#menuForward a')[0].click()
+	}
+});
+// Show HTML Version
+Mousetrap.bind('h', function() {
+	if (rksRunboxView == 'read') {
+        getElementByXpath('//A[descendant::text()=\'Show HTML-version\']').click();
     }
 });
-//
-// Not Spam
-Mousetrap.bind('@', function() {
-    if (rksRunboxView == 'read') {
-        window.location = '/mail/list?learn=innocent&message=' + rksMessageValue;
-    } else if (rksRunboxView == 'list') {
-        document.list.learn.value = 'innocent';
-        document.list.submit();
-    }
-});
-//
 // Empty Drafts
 Mousetrap.bind('e d', function() {
-    $('.empty_trash')[0].click();
-    //getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[1]/TABLE/TBODY/TR[3]/TD/TABLE/TBODY/TR[2]/TD[1]/A[3]').click();
+	$('.empty_trash')[0].click();
 });
-//
 // Empty Spam
 Mousetrap.bind('e p', function() {
-    $('.empty_trash')[1].click();
-    //getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[1]/TABLE/TBODY/TR[3]/TD/TABLE/TBODY/TR[5]/TD[1]/A[3]').click();
+	$('.empty_trash')[1].click();
 });
-//
 // Empty Trash
 Mousetrap.bind('e r', function() {
-    $('.empty_trash')[2].click();
-    //getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[1]/TABLE/TBODY/TR[3]/TD/TABLE/TBODY/TR[7]/TD[1]/A[3]').click();
+	$('.empty_trash')[2].click();
 });
-//
-// ====================
-// Sort/Filter Commands
-// ====================
-//
+// Open keyboard shortcuts help
+Mousetrap.bind('?', function() {
+    $('#rksPdiv').bPopup();
+    return false;
+});
+// SORT/FILTER COMMANDS
 // Run only in list view
 if (rksRunboxView == 'list') {
-    //
-    // Select all/none
+    // Select all or none
     Mousetrap.bind('mod+a', function() {
         $('.checkall')[0].click();
-        // CheckAll();
-        // getElementByXpath('//DIV[@id=\'messagecell\']/DIV[2]/DIV[1]/INPUT').click();
         return false;
     });
-    //
     // Sort by flagged
     Mousetrap.bind('s 1', function() {
         $('.orderflag')[0].click();
-        // getElementByXpath('//DIV[@id=\'messagecell\']/DIV[2]/DIV[2]/NOBR/A[1]').click();
     });
-    //
     // Sort by replied
     Mousetrap.bind('s 2', function() {
         $('.orderrepl')[0].click();
-        // getElementByXpath('//DIV[@id=\'messagecell\']/DIV[2]/DIV[2]/NOBR/A[2]').click();
     });
-    //
     // Sort by from
     Mousetrap.bind('s 3', function() {
         $('.orderfrom')[0].click();
-        // getElementByXpath('//DIV[@id=\'messagecell\']/DIV[2]/DIV[3]/A').click();
     });
-    //
     // Sort by subject
     Mousetrap.bind('s 4', function() {
         $('.ordersubj')[0].click();
-        // getElementByXpath('//DIV[@id=\'messagecell\']/DIV[2]/DIV[4]/A[1]').click();
     });
-    //
     // Sort by new/old
     Mousetrap.bind('s 5', function() {
         $('.ordernew')[0].click();
-        // getElementByXpath('//DIV[@id=\'messagecell\']/DIV[2]/DIV[4]/A[2]').click();
     });
-    //
     // Sort by date
     Mousetrap.bind('s 6', function() {
         $('.orderrecv')[0].click();
-        // getElementByXpath('//DIV[@id=\'messagecell\']/DIV[2]/DIV[5]/A').click();
     });
-    //
     // Sort by size
     Mousetrap.bind('s 7', function() {
         $('.ordersize')[0].click();
-        // getElementByXpath('//DIV[@id=\'messagecell\']/DIV[2]/DIV[6]/NOBR/A').click();
     });
-    //
     // Navigate message list
     function ondivchange(div, i) {
         // div is the highlighted div
@@ -261,31 +179,25 @@ if (rksRunboxView == 'list') {
         };
         var divs = document.getElementById('mailmessages').getElementsByClassName('mailrow'),selectedDiv = 0,i;
         divs[selectedDiv].className = divs[selectedDiv].className + ' rksMailrowFocus';
-        //
         // Select message
-        //
         Mousetrap.bind(['x','space'], function() {
             divs[selectedDiv].click();
             return false;
         });
-        //
         // Reply to focused message
         Mousetrap.bind('r', function() {
             divs[selectedDiv].getElementsByClassName('maillink')[0].click();
             return false;
         });
-        //
         // Open message
         Mousetrap.bind(['enter','o'], function() {
             divs[selectedDiv].getElementsByClassName('subjectlink')[0].click();
             return false;
         });
-        //
-        // Prevent default j/down/k/up
+        // Prevent default j/down/k/up actions
         Mousetrap.bind(['j','k','up','down'], function() {
             return false;
         });
-        //
         // Bind j/down/k/up
         document.onkeydown = function(e) {
             var x = 0;
@@ -317,97 +229,71 @@ if (rksRunboxView == 'list') {
         };
     })); (ondivchange);
 }
-//
-// ===================
-// Navigation Commands
-// ===================
-//
+// NAVIGATION COMMANDS
 // Exclude from compose view
 if (rksRunboxView != 'compose') {
-    //
     // Refresh message list
     Mousetrap.bind('u', function() {
         $('.btn.menu_refresh')[0].click();
     });
-    //
     // Search mail
     Mousetrap.bind('/', function() {
         $('[name=s_new_string]').focus();
         return false;
     });
-    //
     // Next inbox section
     Mousetrap.bind(['.','mod+.'], function() {
-        $('li').find('a:contains(">>")').click();
-        // getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[2]/DIV/DIV[1]/UL[2]/LI[3]/A/SPAN/SPAN').click();
+        $('#menuNext a')[0].click();
     });
-    //
     // Previous inbox section
     Mousetrap.bind([',','mod+,'], function() {
-        $('li').find('a:contains("<<")').click();
-        // getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[2]/DIV/DIV[1]/UL[2]/LI[2]/A/SPAN/SPAN').click();
+        $('#menuPrev a')[0].click();
     });
-    //
     // Go to Contacts
     Mousetrap.bind('g c', function() {
-        window.location = '/mail/addresses';
+        $('.main')[2].click();
     });
-    //
     // Go to All Mail
     Mousetrap.bind('g a', function() {
         $('#foldername_0').click();
-        //getElementByXpath('//FORM[@name=\'list\']/TABLE/TBODY/TR[1]/TD[1]/TABLE/TBODY/TR[3]/TD/TABLE/TBODY/TR[1]/TD[1]/A[2]').click();
-
     });
-    //
     // Go to Drafts
     Mousetrap.bind('g d', function() {
         getElementByXpath('//A[descendant::text()=\'Drafts\']').click();
     });
-    //
     // Go to Inbox
     Mousetrap.bind('g i', function() {
         if (rksRunboxView == 'contacts') {
-            window.location = '/mail/list';
+            $('.main')[0].click();
         } else {
             getElementByXpath('//A[descendant::text()=\'Inbox\']').click();
         }
     });
-    //
     // Go to Sent
     Mousetrap.bind('g s', function() {
         getElementByXpath('//A[descendant::text()=\'Sent\']').click();
     });
-    //
     // Go to Spam
     Mousetrap.bind('g p', function() {
         getElementByXpath('//A[descendant::text()=\'Spam\']').click();
     });
-    //
     // Go to Templates
     Mousetrap.bind('g t', function() {
         getElementByXpath('//A[descendant::text()=\'Templates\']').click();
     });
-    //
     // Go to Trash
     Mousetrap.bind('g r', function() {
         getElementByXpath('//A[descendant::text()=\'Trash\']').click();
     });
 }
-//
-// ================
-// Compose Commands
-// ================
-//
+// COMPOSE COMMANDS
 // Run only in compose view
 if (rksRunboxView == 'compose') {
-    //
     // From address resize
     var fromSel = $('[name=from]')[0];
     fromSel.onblur = function() {
         fromSel.size = 1;
     }
-    //
     // Change From address
     Mousetrap.bindGlobal('mod+shift+f', function() {
         var fromLen = fromSel.options.length;
@@ -415,43 +301,36 @@ if (rksRunboxView == 'compose') {
         fromSel.focus();
         return false;
     });
-    //
     // Add To recipients
     Mousetrap.bindGlobal('mod+shift+t', function() {
         $('#to_').focus();
         return false;
     });
-    //
     // Add Cc recipients
     Mousetrap.bindGlobal('mod+shift+c', function() {
         $('#cc_').focus();
         return false;
     });
-    //
     // Add Bcc recipients
     Mousetrap.bindGlobal('mod+shift+b', function() {
         $('#bcc_').focus();
         return false;
     });
-    //
     // Edit subject
     Mousetrap.bindGlobal('mod+shift+s', function() {
         $('[name=subject]').focus();
         return false;
     });
-    //
     // Edit body
     Mousetrap.bindGlobal('mod+shift', function() {
         $('#editor').focus();
         return false;
     });
-    //
     // Save draft
     Mousetrap.bindGlobal('mod+s', function() {
         $('[name=save]').click();
         return false;
     });
-    //
     // Send message
     Mousetrap.bindGlobal('mod+enter', function() {
         if (confirm('Are sure you want to send this message?')) {
@@ -460,11 +339,7 @@ if (rksRunboxView == 'compose') {
         return false;
     });
 }
-//
-// ========================
-// Keyboard Shortcuts Help
-// ========================
-//
+// KEYBOARD SHORTCUTS HELP
 // Help popup content
 if (rksRunboxView == 'contacts') {
     var rksPcontent = '<div id="rksPtitle">Keyboard Shortcuts</div> \
@@ -478,6 +353,7 @@ if (rksRunboxView == 'contacts') {
                         ';
 } else if (rksRunboxView == 'compose') {
     var rksPcontent = '<div id="rksPtitle">Keyboard Shortcuts</div> \
+    					<p>Note: These commands don\'t work if the cursor is inside the HTML text editor.</p> \
                         <table id="rksPtable"> \
                         <tbody> \
                         <tr><td class="m pl">Ctrl + Shift + f<br>&#8984; + Shift + f</td><td>Change "From:" address</td></tr> \
@@ -512,7 +388,7 @@ if (rksRunboxView == 'contacts') {
                         <tr><td>&nbsp;</td></tr> \
                         <tr><td class="h pl">Selections</td></tr> \
                         <tr><td class="m pl">x or Space</td><td>Select message</td></tr> \
-                        <tr><td class="m pl">Ctrl + a<br>&#8984; + a</td><td>Select All/None</td></tr> \
+                        <tr><td class="m pl">Ctrl + a<br>&#8984; + a</td><td>Select All or None</td></tr> \
                         <tr><td class="m pl">Shift + i</td><td>Mark as read</td></tr> \
                         <tr><td class="m pl">Shift + u</td><td>Mark as unread</td></tr> \
                         <tr><td class="m pl">+ or =</td><td>Flag message(s)</td></tr> \
@@ -528,8 +404,8 @@ if (rksRunboxView == 'contacts') {
                         <tr><td class="m pl">u</td><td>Refresh message list</td></tr> \
                         <tr><td class="m pl">j or Down</td><td>Next message in list</td></tr> \
                         <tr><td class="m pl">k or Up</td><td>Previous message in list</td></tr> \
-                        <tr><td class="m pl">&#62;<br>Ctrl + .<br>&#8984; + .</td><td>Next inbox section</td></tr> \
-                        <tr><td class="m pl">&#60;<br>Ctrl + ,<br>&#8984; + ,</td><td>Previous inbox section</td></tr> \
+                        <tr><td class="m pl">&#62;</td><td>Next inbox or message page</td></tr> \
+                        <tr><td class="m pl">&#60;</td><td>Previous inbox or message page</td></tr> \
                         <tr><td>&nbsp;</td></tr> \
                         <tr><td class="h pl">Jumping</td></tr> \
                         <tr><td class="m pl">g + a</td><td>Go to All mail</td></tr> \
@@ -565,22 +441,12 @@ if (rksRunboxView == 'contacts') {
                         </table> \
                         ';
 }
-//
 // Append popup CSS to head
 $('head').append ('<style type="text/css" media="screen"> #rksPdiv{font-family:inherit;background-color:#fff;border-radius:15px;color:#222;display:none;padding:20px;min-width:360px;min-height:180px}#rksPtitle{font-size:14px;font-weight:700;line-height:1em;margin-top:-4px}#rksPtable{float:left;padding-top:14px!important}#rksPtable td{color:#222!important;font-size:12px!important;line-height:1.1em;padding-right:2em;horizontal-align:left;vertical-align:top}#rksPtable td.pl{padding-left:1em}#rksPtable td.h{font-weight:700;border-left:1px solid #ABD2FD}#rksPtable td.m{font-family:monospace;border-left:1px solid #ABD2FD}.b-close{cursor:pointer;border-radius:7px;box-shadow:none;font:700 16px sans-serif!important;padding:0 6px 3px;position:absolute;right:-7px;top:-9px;background-color:#155D97;color:#FFF;text-shadow:none}a.b-close:hover{color:#000}</style> \
-<style type="text/css" media="print"> #rksPdiv{display:none}</style>'
-);
-//
+<style type="text/css" media="print"> #rksPdiv{display:none}</style>');
 // Append popup HTML to body
 $('body').append (
     '<div id="rksPdiv"> \
     <a class="b-close">x</a> \
     ' + rksPcontent + ' \
-    </div>'
-);
-//
-// Open keyboard shortcuts help
-Mousetrap.bind('?', function() {
-    $('#rksPdiv').bPopup();
-    return false;
-});
+    </div>');

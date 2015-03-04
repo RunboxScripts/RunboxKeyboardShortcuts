@@ -22,30 +22,32 @@ f                 | Forward message
 
 ### Selections
 
-Shortcut Key      | Result
------------------ | ----------------
-x or Space        | Select message
-Ctrl + a<br>⌘ + a | Select All/None
-Shift + i         | Mark as read
-Shift + u         | Mark as unread
-+ or =            | Flag message(s)
--                 | Unflag message(s)
-!                 | Report spam
-@                 | Not spam
-#                 | Delete message(s)
+Shortcut Key       | Result
+------------------ | ----------------
+x or Space         | Select message
+Ctrl + a<br>⌘ + a | Select All or None
+Shift + i          | Mark as read
+Shift + u          | Mark as unread
++ or =             | Flag message(s)
+-                  | Unflag message(s)
+!                  | Report spam
+@                  | Not spam
+#                  | Delete message(s)
 
-### Composing 
+### Composing
 
-Shortcut Key                      | Result
+Note: These commands don't work if the cursor is inside the HTML text editor. 
+
+Shortcut Key 					  | Result
 --------------------------------- | ----------------------
 Ctrl + Shift + f<br>⌘ + Shift + f | Change "From:" address
 Ctrl + Shift + t<br>⌘ + Shift + t | Add "To:" recipients<br>*(This command does not work in Chrome unless<br>Runbox is opened via [Application Shortcut](https://support.google.com/chrome/answer/95710).)*
 Ctrl + Shift + c<br>⌘ + Shift + c | Add "CC:" recipients
 Ctrl + Shift + b<br>⌘ + Shift + b | Add "BCC:" recipients
 Ctrl + Shift + s<br>⌘ + Shift + s | Edit subject
-Ctrl + Shift<br>⌘ + Shift     | Edit body
-Ctrl + s<br>⌘ + s             | Save draft
-Ctrl + Enter<br>⌘ + Enter     | Send message
+Ctrl + Shift<br>⌘ + Shift         | Edit body
+Ctrl + s<br>⌘ + s                 | Save draft
+Ctrl + Enter<br>⌘ + Enter         | Send message
 
 ### Navigation
 
@@ -54,13 +56,13 @@ Shortcut Key      | Result
 u                 | Refresh message list
 j or Down         | Next message in list
 k or Up           | Previous message in list
-&#62;<br>Ctrl + .<br>⌘ + . | Next inbox section
-&#60;<br>Ctrl + ,<br>⌘ + , | Previous inbox section
+&#62;             | Next inbox or message page
+&#60;             | Previous inbox or message page
  
 ### Jumping
 
 Shortcut Key | Result
--------------| ---------------
+------------ | ---------------
 g + a        | Go to All mail
 g + d        | Go to Drafts
 g + i        | Go to Inbox
@@ -73,7 +75,7 @@ g + c        | Go to Contacts
 ### Sorting
 
 Shortcut Key | Result
--------------| ---------------
+------------ | ---------------
 s + 1        | Sort by Flagged
 s + 2        | Sort by Replied
 s + 3        | Sort by From
@@ -85,7 +87,7 @@ s + 7        | Sort by Size
 ### Cleaning
 
 Shortcut Key | Result
--------------| ---------------
+------------ | ---------------
 e + r        | Empty Trash
 e + p        | Empty Spam
 e + d        | Empty Drafts
@@ -93,6 +95,6 @@ e + d        | Empty Drafts
 ### Miscellaneous
 
 Shortcut Key | Result
--------------| ---------------
+------------ | ---------------
 h            | Show HTML version
 ?            | Open keyboard shortcuts help
