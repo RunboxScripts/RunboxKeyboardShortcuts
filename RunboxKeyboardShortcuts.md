@@ -28,7 +28,7 @@ x or Space         | Select message
 Ctrl + a<br>⌘ + a | Select All or None
 Shift + i          | Mark as read
 Shift + u          | Mark as unread
-+ or =             | Flag message(s)
++                  | Flag message(s)
 -                  | Unflag message(s)
 !                  | Report spam
 @                  | Not spam
@@ -40,10 +40,11 @@ Note: These commands don't work if the cursor is inside the HTML text editor.
 
 Shortcut Key 					  | Result
 --------------------------------- | ----------------------
-Ctrl + Shift + f<br>⌘ + Shift + f | Change "From:" address
-Ctrl + Shift + t<br>⌘ + Shift + t | Add "To:" recipients<br>*(This command does not work in Chrome unless<br>Runbox is opened via [Application Shortcut](https://support.google.com/chrome/answer/95710).)*
-Ctrl + Shift + c<br>⌘ + Shift + c | Add "CC:" recipients
-Ctrl + Shift + b<br>⌘ + Shift + b | Add "BCC:" recipients
+a                                 | Show all fields
+Ctrl + Shift + f<br>⌘ + Shift + f | Change &ldquo;From:&rdquo; address
+Ctrl + Shift + t<br>⌘ + Shift + t | Add &ldquo;To:&rdquo; recipients<br>*(Does not work in Chrome)*
+Ctrl + Shift + c<br>⌘ + Shift + c | Add &ldquo;CC:&rdquo; recipients
+Ctrl + Shift + b<br>⌘ + Shift + b | Add &ldquo;BCC:&rdquo; recipients
 Ctrl + Shift + s<br>⌘ + Shift + s | Edit subject
 Ctrl + Shift<br>⌘ + Shift         | Edit body
 Ctrl + s<br>⌘ + s                 | Save draft

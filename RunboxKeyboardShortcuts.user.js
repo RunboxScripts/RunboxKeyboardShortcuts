@@ -9,7 +9,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @version     2.7
+// @version     2.8
 // @grant       none
 // ==/UserScript==
 // FUNCTIONS AND VARIABLES
@@ -28,7 +28,7 @@ function getUrlParameter(sParam) {
         }
     }
 }
-// Set Message Value
+// Get Message Value
 var rksMessageValue = getUrlParameter('message');
 // Get Current View
 if (/\/addresses/.test(self.location.href)) {
@@ -338,6 +338,11 @@ if (rksRunboxView == 'compose') {
         }
         return false;
     });
+    // Show all fields
+    Mousetrap.bindGlobal('a', function() {
+        $('.show_compose_fields')[0].click();
+        return false;
+    });
 }
 // KEYBOARD SHORTCUTS HELP
 // Help popup content
@@ -353,24 +358,22 @@ if (rksRunboxView == 'contacts') {
                         ';
 } else if (rksRunboxView == 'compose') {
     var rksPcontent = '<div id="rksPtitle">Keyboard Shortcuts</div> \
-    					<p>Note: These commands don\'t work if the cursor is inside the HTML text editor.</p> \
+    			<p>These commands don\'t work if the cursor is inside the HTML text editor.</p> \
+                        <table id="rksPtable"> \
+                        <tr><td class="e m pl">a</td><td>Show all fields</td></tr> \
+                        <tr><td class="e m pl">Ctrl + Shift + f<br>&#8984; + Shift + f</td><td>Change &ldquo;From:&rdquo; address</td></tr> \
+                        <tr><td class="e m pl">Ctrl + Shift + t<br>&#8984; + Shift + t</td><td class="e">Add &ldquo;To:&rdquo; recipients<br><em>(Does not work in Chrome)</em></td></tr> \
+                        <tr><td class="e m pl">Ctrl + Shift + c<br>&#8984; + Shift + c</td><td>Add &ldquo;CC:&rdquo; recipients</td></tr> \
+                        <tr><td class="e m pl">Ctrl + Shift + b<br>&#8984; + Shift + b</td><td>Add &ldquo;BCC:&rdquo; recipients</td></tr> \
+                        <tbody> \
+                        </tbody> \
+			</table> \
                         <table id="rksPtable"> \
                         <tbody> \
-                        <tr><td class="m pl">Ctrl + Shift + f<br>&#8984; + Shift + f</td><td>Change "From:" address</td></tr> \
-                        <tr><td>&nbsp;</td></tr> \
-                        <tr><td class="m pl">Ctrl + Shift + t<br>&#8984; + Shift + t</td><td>Add "To:" recipients</td><td class="pl">&#60; This command does not work in Chrome unless<br>Runbox is opened via <a href="https://support.google.com/chrome/answer/95710?hl=en" target="_blank">Application Shortcut</a>.</td></tr> \
-                        <tr><td>&nbsp;</td></tr> \
-                        <tr><td class="m pl">Ctrl + Shift + c<br>&#8984; + Shift + c</td><td>Add "CC:" recipients</td></tr> \
-                        <tr><td>&nbsp;</td></tr> \
-                        <tr><td class="m pl">Ctrl + Shift + b<br>&#8984; + Shift + b</td><td>Add "BCC:" recipients</td></tr> \
-                        <tr><td>&nbsp;</td></tr> \
-                        <tr><td class="m pl">Ctrl + Shift + s<br>&#8984; + Shift + s</td><td>Edit subject</td></tr> \
-                        <tr><td>&nbsp;</td></tr> \
-                        <tr><td class="m pl">Ctrl + Shift<br>&#8984; + Shift</td><td>Edit body</td></tr> \
-                        <tr><td>&nbsp;</td></tr> \
-                        <tr><td class="m pl">Ctrl + s<br>&#8984; + s</td><td>Save draft</td></tr> \
-                        <tr><td>&nbsp;</td></tr> \
-                        <tr><td class="m pl">Ctrl + Enter<br>&#8984; + Enter</td><td>Send message</td></tr> \
+                        <tr><td class="e m pl">Ctrl + Shift + s<br>&#8984; + Shift + s</td><td>Edit subject</td></tr> \
+                        <tr><td class="e m pl">Ctrl + Shift<br>&#8984; + Shift</td><td>Edit body</td></tr> \
+                        <tr><td class="e m pl">Ctrl + s<br>&#8984; + s</td><td>Save draft</td></tr> \
+                        <tr><td class="e m pl">Ctrl + Enter<br>&#8984; + Enter</td><td>Send message</td></tr> \
                         </tbody> \
                         </table> \
                         ';
@@ -391,7 +394,7 @@ if (rksRunboxView == 'contacts') {
                         <tr><td class="m pl">Ctrl + a<br>&#8984; + a</td><td>Select All or None</td></tr> \
                         <tr><td class="m pl">Shift + i</td><td>Mark as read</td></tr> \
                         <tr><td class="m pl">Shift + u</td><td>Mark as unread</td></tr> \
-                        <tr><td class="m pl">+ or =</td><td>Flag message(s)</td></tr> \
+                        <tr><td class="m pl">+</td><td>Flag message(s)</td></tr> \
                         <tr><td class="m pl">-</td><td>Unflag message(s)</td></tr> \
                         <tr><td class="m pl">!</td><td>Report spam</td></tr> \
                         <tr><td class="m pl">@</td><td>Not spam</td></tr> \
@@ -442,7 +445,7 @@ if (rksRunboxView == 'contacts') {
                         ';
 }
 // Append popup CSS to head
-$('head').append ('<style type="text/css" media="screen"> #rksPdiv{font-family:inherit;background-color:#fff;border-radius:15px;color:#222;display:none;padding:20px;min-width:360px;min-height:180px}#rksPtitle{font-size:14px;font-weight:700;line-height:1em;margin-top:-4px}#rksPtable{float:left;padding-top:14px!important}#rksPtable td{color:#222!important;font-size:12px!important;line-height:1.1em;padding-right:2em;horizontal-align:left;vertical-align:top}#rksPtable td.pl{padding-left:1em}#rksPtable td.h{font-weight:700;border-left:1px solid #ABD2FD}#rksPtable td.m{font-family:monospace;border-left:1px solid #ABD2FD}.b-close{cursor:pointer;border-radius:7px;box-shadow:none;font:700 16px sans-serif!important;padding:0 6px 3px;position:absolute;right:-7px;top:-9px;background-color:#155D97;color:#FFF;text-shadow:none}a.b-close:hover{color:#000}</style> \
+$('head').append ('<style type="text/css" media="screen"> #rksPdiv{font-family:inherit;background-color:#fff;border-radius:15px;color:#222;display:none;padding:20px;min-width:360px;min-height:180px}#rksPtitle{font-size:14px;font-weight:700;line-height:1em;margin-top:-4px}#rksPtable{float:left;padding-top:14px!important}#rksPtable td{color:#222!important;font-size:12px!important;line-height:1.1em;padding-right:2em;horizontal-align:left;vertical-align:top}#rksPtable td.e{padding-bottom:1em}#rksPtable td.pl{padding-left:1em}#rksPtable td.h{font-weight:700;border-left:1px solid #ABD2FD}#rksPtable td.m{font-family:monospace;border-left:1px solid #ABD2FD}.b-close{cursor:pointer;border-radius:7px;box-shadow:none;font:700 16px sans-serif!important;padding:0 6px 3px;position:absolute;right:-7px;top:-9px;background-color:#155D97;color:#FFF;text-shadow:none}a.b-close:hover{color:#000}</style> \
 <style type="text/css" media="print"> #rksPdiv{display:none}</style>');
 // Append popup HTML to body
 $('body').append (
