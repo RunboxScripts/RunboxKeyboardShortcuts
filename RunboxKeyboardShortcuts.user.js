@@ -9,7 +9,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @version     2.8
+// @version     2.9
 // @grant       none
 // ==/UserScript==
 // FUNCTIONS AND VARIABLES
@@ -339,7 +339,7 @@ if (rksRunboxView == 'compose') {
         return false;
     });
     // Show all fields
-    Mousetrap.bindGlobal('a', function() {
+    Mousetrap.bind('a', function() {
         $('.show_compose_fields')[0].click();
         return false;
     });
