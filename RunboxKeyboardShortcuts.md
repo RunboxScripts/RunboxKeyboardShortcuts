@@ -36,7 +36,7 @@ Shift + u          | Mark as unread
 
 ### Composing
 
-Note: These commands don't work if the cursor is inside the HTML text editor. 
+These commands do not work inside the HTML text editor.
 
 Shortcut Key 					  | Result
 --------------------------------- | ----------------------

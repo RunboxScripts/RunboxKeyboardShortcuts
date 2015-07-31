@@ -358,7 +358,7 @@ if (rksRunboxView == 'contacts') {
                         ';
 } else if (rksRunboxView == 'compose') {
     var rksPcontent = '<div id="rksPtitle">Keyboard Shortcuts</div> \
-    			<p>These commands don\'t work if the cursor is inside the HTML text editor.</p> \
+    			<p>These commands do not work inside the HTML text editor.</p> \
                         <table id="rksPtable"> \
                         <tr><td class="e m pl">a</td><td>Show all fields</td></tr> \
                         <tr><td class="e m pl">Ctrl + Shift + f<br>&#8984; + Shift + f</td><td>Change &ldquo;From:&rdquo; address</td></tr> \
