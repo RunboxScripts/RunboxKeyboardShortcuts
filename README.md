@@ -39,7 +39,7 @@ We look forward to hearing from you, thanks!
 
 ## Changelog
 
-* 2.8: Added "Show all fields" option in compose view. Clarified keybind explanations.
+* 2.8: Added "Show all fields" command in compose view. Clarified keybind explanations.
 * 2.7: Extended next/previous functionality to individual message views. Redefined selectors for multiple keybinds. Fixed various bugs.
 * 2.6: Added print CSS stylesheet. Improved & minified all CSS.
 * 2.5: Reverted change to "Show HTML version" keybind.
