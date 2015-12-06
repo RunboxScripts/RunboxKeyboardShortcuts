@@ -4,7 +4,7 @@ Adds keyboard shortcuts to the Runbox.com Webmail client.
 
 View complete list of shortcuts: [RunboxKeyboardShortcuts.md](https://github.com/RunboxScripts/RunboxKeyboardShortcuts/blob/master/RunboxKeyboardShortcuts.md)
 
-Once installed, press **?** ( <kbd>Shift</kbd>+<kbd>/</kbd> ) to see a list of available shortcuts.  
+Once installed, press **?** ( <kbd>Shift</kbd>+<kbd>/</kbd> ) to see a list of available shortcuts.
 
 ## How to install
 
@@ -20,16 +20,16 @@ Make sure you meet the requirements below. Then click this link:
    * Chrome with Tampermonkey: <https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo>
    * Opera (not tested)
 
-2. You need Runbox Webmail 6 Enhanced Mode. 
+2. You need Runbox Webmail 6 Enhanced Mode.
 
    * Scroll to the bottom left in Webmail and click this button: [Screenshot #1](https://i.imgur.com/sEMw88a.png)
    * When Enhanced mode is enabled you'll see this button: [Screenshot #2](https://i.imgur.com/SkplIh7.png)
 
 3. You need the "New" Search bar: [Screenshot #3](https://i.imgur.com/Qzezhze.png)
 
-## Bugs, Questions, Improvement Requests
+## Support
 
-[Open an issue](https://github.com/RunboxScripts/RunboxKeyboardShortcuts/issues) or email us: RunboxScripts@runbox.com
+[Open an issue](https://github.com/RunboxScripts/RunboxKeyboardShortcuts/issues) or email us: runboxscripts@runbox.com
 
 Feel free to:
 
