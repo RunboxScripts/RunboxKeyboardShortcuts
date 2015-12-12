@@ -4,7 +4,7 @@ Adds keyboard shortcuts to the Runbox.com Webmail client.
 
 View complete list of shortcuts: [RunboxKeyboardShortcuts.md](https://github.com/RunboxScripts/RunboxKeyboardShortcuts/blob/master/RunboxKeyboardShortcuts.md)
 
-Once installed, press **?** ( <kbd>Shift</kbd>+<kbd>/</kbd> ) to see a list of available shortcuts.
+Once installed, press **?** ( Shift + / ) to see a list of available shortcuts.
 
 ## How to install
 
@@ -20,12 +20,18 @@ Make sure you meet the requirements below. Then click this link:
    * Chrome with Tampermonkey: <https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo>
    * Opera (not tested)
 
-2. You need Runbox Webmail 6 Enhanced Mode.
+2. You need the "New" Search bar:
+![New Search Bar](https://cloud.githubusercontent.com/assets/9103375/11760387/94473aba-a04d-11e5-9fd2-dcf014abdf89.jpg)
 
-   * Scroll to the bottom left in Webmail and click this button: [Screenshot #1](https://i.imgur.com/sEMw88a.png)
-   * When Enhanced mode is enabled you'll see this button: [Screenshot #2](https://i.imgur.com/SkplIh7.png)
+3. You need to enable Runbox Webmail Enhanced Mode:
 
-3. You need the "New" Search bar: [Screenshot #3](https://i.imgur.com/Qzezhze.png)
+   * Scroll to the bottom left and click "Switch to Runbox Enhanced":
+
+   ![Switch to Runbox Enhanced](https://cloud.githubusercontent.com/assets/9103375/11760358/9859883e-a04c-11e5-8dcb-b5fccd44b1d6.jpg)
+
+   * When Enhanced mode is enabled, the link will show: "Switch to Runbox Basic"
+
+   ![Switch to Runbox Basic](https://cloud.githubusercontent.com/assets/9103375/11760368/0ff84ac4-a04d-11e5-83fc-555b6f16325b.jpg)
 
 ## Support
 
