@@ -47,6 +47,8 @@ We look forward to hearing from you, thanks!
 
 ## Changelog
 
+* 3.0: Modify color and size of message selection indicator.
+
 * 2.9: Fix improper binding on "Show all fields" command.
 
 * 2.8: Added "Show all fields" command in compose view. Clarified keybind explanations.
