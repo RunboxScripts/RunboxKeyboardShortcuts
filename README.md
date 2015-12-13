@@ -47,7 +47,7 @@ We look forward to hearing from you, thanks!
 
 ## Changelog
 
-* 3.1: Remove Firefox specific styling
+* 3.1: Remove Firefox specific styling. Fix stylesheet include.
 
 * 3.0: Make compose window selection boxes searchable. Modify color and size of message selection indicator.
 

@@ -291,7 +291,7 @@ if (rksRunboxView != 'compose') {
 // Run only in compose view
 if (rksRunboxView == 'compose') {
     // Append Select2 CSS to head
-    $('head').append ('<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.css" rel="stylesheet" />');
+    $('head').append ('<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.css" media="screen" />');
     // Load Select2 on compose window select boxes
     $('select.formfield[name=from]').select2({width:'408px'});
     $('select.formfield[name=from_files],select.formfield[name=add_tag_id]').select2({width:'element'});
