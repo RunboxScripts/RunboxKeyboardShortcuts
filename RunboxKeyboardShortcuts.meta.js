@@ -1,4 +1,4 @@
 ﻿// ==UserScript==
 // @name    Runbox Keyboard Shortcuts
-// @version 2.9
+// @version 3.0
 // ==/UserScript==
