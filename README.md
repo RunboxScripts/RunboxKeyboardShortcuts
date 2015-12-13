@@ -47,7 +47,7 @@ We look forward to hearing from you, thanks!
 
 ## Changelog
 
-* 3.0: Modify color and size of message selection indicator.
+* 3.0: Make compose window selection boxes searchable. Modify color and size of message selection indicator.
 
 * 2.9: Fix improper binding on "Show all fields" command.
 

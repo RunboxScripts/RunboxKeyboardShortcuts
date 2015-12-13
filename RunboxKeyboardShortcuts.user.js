@@ -8,6 +8,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/mousetrap.min.js
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
+// @require     https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
 // @version     3.0
 // @grant       none
@@ -289,16 +290,14 @@ if (rksRunboxView != 'compose') {
 // COMPOSE COMMANDS
 // Run only in compose view
 if (rksRunboxView == 'compose') {
-    // From address resize
-    var fromSel = $('[name=from]')[0];
-    fromSel.onblur = function() {
-        fromSel.size = 1;
-    }
+    // Append Select2 CSS to head
+    $('head').append ('<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.css" rel="stylesheet" /><style type="text/css" media="screen">@-moz-document url-prefix(){.select2-container .select2-choice span{line-height:2.5em !important}}</style>');
+    // Load Select2 on compose window select boxes
+    $('select.formfield[name=from]').select2({width:'408px'});
+    $('select.formfield[name=from_files],select.formfield[name=add_tag_id]').select2({width:'element'});
     // Change From address
     Mousetrap.bindGlobal('mod+shift+f', function() {
-        var fromLen = fromSel.options.length;
-        fromSel.size = fromLen;
-        fromSel.focus();
+        $('#s2id_autogen1').select2('open');
         return false;
     });
     // Add To recipients
