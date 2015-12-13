@@ -10,7 +10,7 @@
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
 // @require     https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @version     3.0
+// @version     3.1
 // @grant       none
 // ==/UserScript==
 // FUNCTIONS AND VARIABLES
@@ -291,7 +291,7 @@ if (rksRunboxView != 'compose') {
 // Run only in compose view
 if (rksRunboxView == 'compose') {
     // Append Select2 CSS to head
-    $('head').append ('<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.css" rel="stylesheet" /><style type="text/css" media="screen">@-moz-document url-prefix(){.select2-container .select2-choice span{line-height:2.5em !important}}</style>');
+    $('head').append ('<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.css" rel="stylesheet" />');
     // Load Select2 on compose window select boxes
     $('select.formfield[name=from]').select2({width:'408px'});
     $('select.formfield[name=from_files],select.formfield[name=add_tag_id]').select2({width:'element'});
