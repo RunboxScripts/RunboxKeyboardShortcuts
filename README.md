@@ -39,11 +39,9 @@ Make sure you meet the requirements below. Then click this link:
 
 Feel free to:
 
-* Ask **any** questions
 * Report bugs and problems
-* Suggest new key shortcuts
-
-We look forward to hearing from you, thanks!
+* Ask any questions
+* Make any suggestions
 
 ## Changelog
 
