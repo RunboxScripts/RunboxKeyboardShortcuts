@@ -45,11 +45,13 @@ Feel free to:
 
 ## Changelog
 
-* 3.1: Remove Firefox specific styling. Fix stylesheet include.
+* 3.2: "Reply to all" and "Forward" keybinds now apply to currently selected message in message list. Removed unused code.
 
-* 3.0: Make compose window selection boxes searchable. Modify color and size of message selection indicator.
+* 3.1: Removed Firefox specific styling. Fixed stylesheet include.
 
-* 2.9: Fix improper binding on "Show all fields" command.
+* 3.0: Compose window selection boxes are now searchable. Modified color and size of message selection indicator.
+
+* 2.9: Fixed improper binding on "Show all fields" command.
 
 * 2.8: Added "Show all fields" command in compose view. Clarified keybind explanations.
 

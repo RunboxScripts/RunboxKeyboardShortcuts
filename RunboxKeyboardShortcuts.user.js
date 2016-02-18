@@ -10,7 +10,7 @@
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
 // @require     https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @version     3.1
+// @version     3.2
 // @grant       none
 // ==/UserScript==
 // FUNCTIONS AND VARIABLES
@@ -18,19 +18,6 @@
 function getElementByXpath(path) {
     return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 };
-// Get Variables from URL
-function getUrlParameter(sParam) {
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) {
-            return sParameterName[1];
-        }
-    }
-}
-// Get Message Value
-var rksMessageValue = getUrlParameter('message');
 // Get Current View
 if (/\/addresses/.test(self.location.href)) {
     var rksRunboxView = 'contacts';
@@ -188,6 +175,16 @@ if (rksRunboxView == 'list') {
         // Reply to focused message
         Mousetrap.bind('r', function() {
             divs[selectedDiv].getElementsByClassName('maillink')[0].click();
+            return false;
+        });
+        // Replyall to focused message
+        Mousetrap.bind('a', function() {
+            openCompose('/mail/replyall?message=' + divs[selectedDiv].getElementsByClassName('message_id')[0].innerHTML, 750, 670, '_blank');
+            return false;
+        });
+        // Forward focused message
+        Mousetrap.bind('f', function() {
+            openCompose('/mail/forward?message=' + divs[selectedDiv].getElementsByClassName('message_id')[0].innerHTML, 750, 670, '_blank');
             return false;
         });
         // Open message
