@@ -12,18 +12,20 @@ Make sure you meet the requirements below. Then click this link:
 
 <https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardShortcuts/master/RunboxKeyboardShortcuts.user.js>
 
+You may need to enable popups for `runbox.com` in your browser for this script to work correctly.
+
 ### Requirements
 
-1. You need a web browser that can run user scripts:
+1. A web browser that can run user scripts:
 
    * Firefox with Greasemonkey: <https://addons.mozilla.org/en-US/firefox/addon/greasemonkey>
    * Chrome with Tampermonkey: <https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo>
    * Opera (not tested)
 
-2. You need the "New" Search bar:
+2. Enable the "New" Search bar:
 ![New Search Bar](https://cloud.githubusercontent.com/assets/9103375/11760387/94473aba-a04d-11e5-9fd2-dcf014abdf89.jpg)
 
-3. You need to enable Runbox Webmail Enhanced Mode:
+3. Enable Runbox Webmail Enhanced Mode:
 
    * Scroll to the bottom left and click "Switch to Runbox Enhanced":
 
@@ -44,6 +46,8 @@ Feel free to:
 * Make any suggestions
 
 ## Changelog
+
+* 3.3: Added keybind to open message in new tab or window.
 
 * 3.2: "Reply to all" and "Forward" keybinds now apply to currently selected message in message list. Removed unused code.
 

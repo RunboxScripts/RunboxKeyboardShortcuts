@@ -2,8 +2,8 @@
 
 * [Actions](#actions)
 * [Selections](#selections)
-* [Composing](#composing)
 * [Navigation](#navigation)
+* [Composing](#composing)
 * [Jumping](#jumping)
 * [Sorting](#sorting)
 * [Cleaning](#cleaning)
@@ -11,14 +11,15 @@
 
 ## Actions
 
-| Shortcut Key | Result           |
-| ------------ | ---------------- |
-| c            | Compose message  |
-| o or Enter   | Open message     |
-| r            | Reply to message |
-| a            | Reply to all     |
-| f            | Forward message  |
-| /            | Search mail      |
+| Shortcut Key               | Result                 |
+| -------------------------- | ---------------------- |
+| c                          | Compose message        |
+| o or Enter                 | Open message           |
+| Shift + o or Shift + Enter | Open in new tab/window |
+| r                          | Reply to message       |
+| a                          | Reply to all           |
+| f                          | Forward message        |
+| /                          | Search mail            |
 
 ## Selections
 
@@ -33,6 +34,16 @@
 | !                 | Report spam        |
 | @                 | Not spam           |
 | #                 | Delete message(s)  |
+
+## Navigation
+
+| Shortcut Key | Result                         |
+| ------------ | ------------------------------ |
+| u            | Refresh message list           |
+| j or Down    | Next message in list           |
+| k or Up      | Previous message in list       |
+| &#62;        | Next inbox or message page     |
+| &#60;        | Previous inbox or message page |
 
 ## Composing
 
@@ -50,16 +61,6 @@ These commands do not work inside the HTML text editor.
 | Ctrl + s<br>⌘ + s                 | Save draft                                                      |
 | Ctrl + Enter<br>⌘ + Enter         | Send message                                                    |
 
-## Navigation
-
-| Shortcut Key | Result                         |
-| ------------ | ------------------------------ |
-| u            | Refresh message list           |
-| j or Down    | Next message in list           |
-| k or Up      | Previous message in list       |
-| &#62;        | Next inbox or message page     |
-| &#60;        | Previous inbox or message page |
- 
 ## Jumping
 
 | Shortcut Key | Result          |
@@ -84,7 +85,7 @@ These commands do not work inside the HTML text editor.
 | s + 5        | Sort by New/Old |
 | s + 6        | Sort by Date    |
 | s + 7        | Sort by Size    |
- 
+
 ## Cleaning
 
 | Shortcut Key | Result       |
@@ -92,7 +93,7 @@ These commands do not work inside the HTML text editor.
 | e + r        | Empty Trash  |
 | e + p        | Empty Spam   |
 | e + d        | Empty Drafts |
- 
+
 ## Miscellaneous
 
 | Shortcut Key | Result                       |

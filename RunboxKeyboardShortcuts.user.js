@@ -10,7 +10,7 @@
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
 // @require     https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @version     3.2
+// @version     3.3
 // @grant       none
 // ==/UserScript==
 // FUNCTIONS AND VARIABLES
@@ -190,6 +190,14 @@ if (rksRunboxView == 'list') {
         // Open message
         Mousetrap.bind(['enter','o'], function() {
             divs[selectedDiv].getElementsByClassName('subjectlink')[0].click();
+            return false;
+        });
+        // Open message in new tab/window
+        Mousetrap.bind(['shift+enter','shift+o'], function() {
+            var rksMessageSubjectlink = divs[selectedDiv].getElementsByClassName('subjectlink')[0];
+            rksMessageSubjectlink.setAttribute('target', '_blank');
+            rksMessageSubjectlink.click();
+            rksMessageSubjectlink.removeAttribute('target');
             return false;
         });
         // Prevent default j/down/k/up actions
@@ -380,6 +388,7 @@ if (rksRunboxView == 'contacts') {
                         <tr><td class="h pl">Actions</td></tr> \
                         <tr><td class="m pl">c</td><td>Compose message</td></tr> \
                         <tr><td class="m pl">o or Enter</td><td>Open message</td></tr> \
+                        <tr><td class="m pl">Shift + o or Shift + Enter</td><td>Open in new tab/window</td></tr> \
                         <tr><td class="m pl">r</td><td>Reply to message</td></tr> \
                         <tr><td class="m pl">a</td><td>Reply to all</td></tr> \
                         <tr><td class="m pl">f</td><td>Forward message</td></tr> \
