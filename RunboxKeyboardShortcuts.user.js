@@ -10,7 +10,7 @@
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
 // @require     https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
-// @version     3.3
+// @version     3.4
 // @grant       none
 // ==/UserScript==
 // FUNCTIONS AND VARIABLES
@@ -346,6 +346,10 @@ if (rksRunboxView == 'compose') {
     Mousetrap.bind('a', function() {
         $('.show_compose_fields')[0].click();
         return false;
+    });
+    // Hide "show all fields" row on click
+    $('.show_compose_fields').click(function() {
+        $('#row_show_all_fields').hide();
     });
 }
 // KEYBOARD SHORTCUTS HELP
