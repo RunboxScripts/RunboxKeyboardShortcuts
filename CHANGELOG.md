@@ -1,5 +1,7 @@
 # Changelog
 
+* 3.5: Update broken requirement. Move external CSS inline. Fix formfield widths in compose window. Resize message indicator. Only load message indicator if there are messages in message list.
+
 * 3.4: Fully hide the "Show all fields" row after clicking. Move Changelog to separate document.
 
 * 3.3: Added keybind to open message in new tab or window.
