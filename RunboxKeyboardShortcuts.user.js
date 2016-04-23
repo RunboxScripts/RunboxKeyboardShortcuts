@@ -162,7 +162,7 @@ if (rksRunboxView == 'list') {
     function ondivchange(div, i) {
         // div is the highlighted div
         // i is index of said div
-    } waitForKeyElements('.mailrow:first', (function (callback) {
+    } waitForKeyElements('.mailrow:first:not(.mailrow:contains(There\ are\ no\ messages\ in\ this\ folder))', (function (callback) {
         callback = callback || function() {
         };
         var divs = document.getElementById('mailmessages').getElementsByClassName('mailrow'),selectedDiv = 0,i;
