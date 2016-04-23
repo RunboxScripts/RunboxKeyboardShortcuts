@@ -9,7 +9,7 @@
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
 // @require     https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.js
-// @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
+// @require     https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
 // @version     3.4
 // @grant       none
 // ==/UserScript==
