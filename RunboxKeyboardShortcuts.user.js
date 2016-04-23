@@ -43,7 +43,7 @@ function checkboxFocusReset() {
 // Refresh checkbox state upon Ajax refresh
 waitForKeyElements(".m1:first", checkboxFocusReset);
 // Append script CSS to head
-$('head').append ('<style type="text/css" media="screen"> .submenu ul li ul.sub{z-index:7}.rksMailrowFocus{position:relative}.rksMailrowFocus::before{display:block;content:".";color:transparent;font-size:0;border-left:6px solid #2E7AB6;height:100%;position:absolute;left:-6px;padding:1px 0;top:-1px;bottom:-1px}.rksMailrowFocus::after{display:block;content:".";color:transparent;font-size:0;border-left:5px solid #2E7AB6;height:100%;position:absolute;right:-5px;padding:1px 0;top:-1px;bottom:-1px}</style>');
+$('head').append ('<style type="text/css" media="screen"> .submenu ul li ul.sub{z-index:7}.rksMailrowFocus{position:relative}.rksMailrowFocus::before{display:block;content:".";color:transparent;font-size:0;border-left:5px solid #2E7AB6;height:100%;position:absolute;left:-5px;padding:1px 0;top:-1px;bottom:-1px}.rksMailrowFocus::after{display:block;content:".";color:transparent;font-size:0;border-left:5px solid #2E7AB6;height:100%;position:absolute;right:-5px;padding:1px 0;top:-1px;bottom:-1px}</style>');
 // ACTIONS
 // Compose message
 Mousetrap.bind('c', function() {
