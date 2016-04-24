@@ -18,7 +18,7 @@
 // Get Element by XPath
 function getElementByXpath(path) {
     return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-};
+}
 // Get Current View
 if (/\/addresses/.test(self.location.href)) {
     var rksRunboxView = 'contacts';
@@ -68,36 +68,36 @@ Mousetrap.bind('U', function() {
 });
 // Flag message
 Mousetrap.bind(['=','+'], function() {
-    $('#menuFlag a')[0].click()
+    $('#menuFlag a')[0].click();
 });
 // Unflag message
 Mousetrap.bind('-', function() {
-    $('#menuUnflag a')[0].click()
+    $('#menuUnflag a')[0].click();
 });
 // Report spam
 Mousetrap.bind('!', function() {
-    $('#menuSpam a')[0].click()
+    $('#menuSpam a')[0].click();
 });
 // Not Spam
 Mousetrap.bind('@', function() {
-    $('#menuNotSpam a')[0].click()
+    $('#menuNotSpam a')[0].click();
 });
 // Reply to message
 Mousetrap.bind('r', function() {
     if (rksRunboxView == 'read') {
-        $('#menuReply a')[0].click()
+        $('#menuReply a')[0].click();
     }
 });
 // Reply to all
 Mousetrap.bind('a', function() {
     if (rksRunboxView == 'read') {
-        $('#menuReplyAll a')[0].click()
+        $('#menuReplyAll a')[0].click();
     }
 });
 // Forward message
 Mousetrap.bind('f', function() {
     if (rksRunboxView == 'read') {
-        $('#menuForward a')[0].click()
+        $('#menuForward a')[0].click();
     }
 });
 // Show HTML Version
