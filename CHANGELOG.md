@@ -1,5 +1,7 @@
 # Changelog
 
+* 3.6: Adjust formfield sizing in compose window. Update script meta layout. Fix script formatting.
+
 * 3.5: Update broken requirement. Move external CSS inline. Fix formfield widths in compose window. Resize message indicator. Only load message indicator if there are messages in message list.
 
 * 3.4: Fully hide the "Show all fields" row after clicking. Move Changelog to separate document.

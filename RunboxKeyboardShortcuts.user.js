@@ -3,7 +3,7 @@
 // @description Add keyboard shortcuts to Runbox Webmail
 // @author      https://github.com/RunboxScripts
 // @namespace   https://github.com/RunboxScripts
-// @version     3.5
+// @version     3.6
 // @downloadURL https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardShortcuts/master/RunboxKeyboardShortcuts.user.js
 // @updateURL   https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardShortcuts/master/RunboxKeyboardShortcuts.meta.js
 // @match       https://runbox.com/*
