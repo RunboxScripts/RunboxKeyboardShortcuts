@@ -1,17 +1,18 @@
 ﻿// ==UserScript==
 // @name        Runbox Keyboard Shortcuts
+// @description Add keyboard shortcuts to Runbox Webmail
+// @author      https://github.com/RunboxScripts
 // @namespace   https://github.com/RunboxScripts
-// @description Adds keyboard shortcuts to Runbox Webmail
+// @version     3.5
 // @downloadURL https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardShortcuts/master/RunboxKeyboardShortcuts.user.js
 // @updateURL   https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardShortcuts/master/RunboxKeyboardShortcuts.meta.js
 // @match       https://runbox.com/*
+// @grant       none
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/mousetrap.min.js
 // @require     https://raw.githubusercontent.com/ccampbell/mousetrap/master/plugins/global-bind/mousetrap-global-bind.min.js
 // @require     https://raw.githubusercontent.com/dinbror/bpopup/master/jquery.bpopup.min.js
 // @require     https://cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.js
 // @require     https://gist.githubusercontent.com/BrockA/2625891/raw/waitForKeyElements.js
-// @version     3.5
-// @grant       none
 // ==/UserScript==
 // FUNCTIONS AND VARIABLES
 // Get Element by XPath
