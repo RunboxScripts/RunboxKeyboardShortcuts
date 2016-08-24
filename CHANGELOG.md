@@ -1,5 +1,7 @@
 # Changelog
 
+* 3.7: Adjust width of message indicator.
+
 * 3.6: Adjust formfield sizing in compose window. Update script meta layout. Fix script formatting.
 
 * 3.5: Update broken requirement. Move external CSS inline. Fix formfield widths in compose window. Resize message indicator. Only load message indicator if there are messages in message list.
