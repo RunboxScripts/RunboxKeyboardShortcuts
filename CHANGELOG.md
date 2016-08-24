@@ -1,5 +1,7 @@
 # Changelog
 
+* 3.8: Adjust hover color of popup exit button.
+
 * 3.7: Adjust width of message indicator.
 
 * 3.6: Adjust formfield sizing in compose window. Update script meta layout. Fix script formatting.
