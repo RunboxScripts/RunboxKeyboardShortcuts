@@ -3,7 +3,7 @@
 // @description Add keyboard shortcuts to Runbox Webmail
 // @author      https://github.com/RunboxScripts
 // @namespace   https://github.com/RunboxScripts
-// @version     3.6
+// @version     3.7
 // @downloadURL https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardShortcuts/master/RunboxKeyboardShortcuts.user.js
 // @updateURL   https://raw.githubusercontent.com/RunboxScripts/RunboxKeyboardShortcuts/master/RunboxKeyboardShortcuts.meta.js
 // @match       https://runbox.com/*
@@ -44,7 +44,7 @@ function checkboxFocusReset() {
 // Refresh checkbox state upon Ajax refresh
 waitForKeyElements(".m1:first", checkboxFocusReset);
 // Append script CSS to head
-$('head').append ('<style type="text/css" media="screen"> .submenu ul li ul.sub{z-index:7}.rksMailrowFocus{position:relative}.rksMailrowFocus::before{display:block;content:".";color:transparent;font-size:0;border-left:5px solid #2E7AB6;height:100%;position:absolute;left:-5px;padding:1px 0;top:-1px;bottom:-1px}.rksMailrowFocus::after{display:block;content:".";color:transparent;font-size:0;border-left:5px solid #2E7AB6;height:100%;position:absolute;right:-5px;padding:1px 0;top:-1px;bottom:-1px}</style>');
+$('head').append ('<style type="text/css" media="screen"> .submenu ul li ul.sub{z-index:7}.rksMailrowFocus{position:relative}.rksMailrowFocus::before{display:block;content:".";color:transparent;font-size:0;border-left:4px solid #2E7AB6;height:100%;position:absolute;left:-5px;padding:1px 0;top:-1px;bottom:-1px}.rksMailrowFocus::after{display:block;content:".";color:transparent;font-size:0;border-right:4px solid #2E7AB6;height:100%;position:absolute;right:-5px;padding:1px 0;top:-1px;bottom:-1px}</style>');
 // ACTIONS
 // Compose message
 Mousetrap.bind('c', function() {
