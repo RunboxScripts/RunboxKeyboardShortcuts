@@ -37,7 +37,7 @@ You may need to enable popups for `runbox.com` in your browser for this script t
 
 ## Support
 
-[Open an issue](https://github.com/RunboxScripts/RunboxKeyboardShortcuts/issues) or email us: runboxscripts@runbox.com
+[Open an issue](https://github.com/RunboxScripts/RunboxKeyboardShortcuts/issues)
 
 Feel free to:
 
