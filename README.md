@@ -6,6 +6,8 @@ View complete list of shortcuts: [RunboxKeyboardShortcuts.md](https://github.com
 
 Once installed, press **?** ( Shift + / ) to see a list of available shortcuts.
 
+Note: I no longer use Runbox, and am looking for a new [organization](https://github.com/RunboxScripts) maintainer for this project.
+
 ## How to install
 
 Make sure you meet the requirements below. Then click this link:
