@@ -1,6 +1,6 @@
 # Runbox Keyboard Shortcuts
 
-**Note:** I no longer use Runbox, and am looking for a new [organization](https://github.com/RunboxScripts) maintainer for this project.
+This project is Unmaintained.
 
 Adds keyboard shortcuts to the Runbox.com Webmail client.
 
